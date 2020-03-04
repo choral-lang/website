@@ -1,0 +1,21 @@
+title:              Choral Language Website
+author:             Choral Development Team
+baseurl:            "/"
+
+# Add your google-analytics ID here to activate google analytics
+google_analytics:   UA-XXXXXXXXX-X # out your google-analytics code
+
+collections:
+  examples:
+    output: true
+
+# Build settings
+markdown: kramdown
+kramdown:
+  parse_block_html: true
+  
+highlighter: rouge
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
