@@ -15,18 +15,18 @@ Starting tour: [Installation](#installation) > [Syntax](#syntax) > [Compilation]
 
 The syntax of Choral is heavily inspired by one of the most widely-used mainstream languages: Java, so that Java developers (and akin, like C++/#) benefit from a graceful learning curve to grasp the main concepts of the Choral language. 
 
-```java
-public class MyExample@( Server, Client, Logger ) {
+```choral
+class MyExample@( Server, Client, Logger ) {
  
  Channel@( Server, Logger ) logChannel;
  Log@Logger log;
 
- public MyExample( Channel@( Server, Logger ) logChannel, Log@Logger log ){
+ MyExample( Channel@( Server, Logger ) logChannel, Log@Logger log ){
     this.logChannel = logChannel;
     this.log = log;
  }
 
- public static void sendMessage( Channel@( Server, Client ) channel ) {
+ static void sendMessage( Channel@( Server, Client ) channel ) {
   String@Server message;
   message = channel.com( Panel@Client.prompt( "Insert the message for the server" ) );
   log.record( logChannel.com( message ) );
