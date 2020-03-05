@@ -44,7 +44,11 @@ module Rouge
           end
           
           rule %r/@#{id}/, Name::Namespace
-          rule %r/@\(/, Name::Namespace, :worlds
+          rule %r/(@)\s*(\()/ do | m |
+            token Name::Namespace, m[1]
+            token Text, m[2]
+            goto :worlds
+          end
           rule %r/(?:#{declarations.join('|')})\b/, Keyword::Declaration
           rule %r/(?:null)\b/, Keyword::Constant
           rule %r/(?:class|interface)\b/, Keyword::Declaration, :class
@@ -77,14 +81,14 @@ module Rouge
         rule %r/\s+/m, Text
         rule id, Name::Class
         rule atWorld, Name::Namespace
-        rule %r/\(/m, Name::Namespace, :worlds
+        rule %r/\(/m, Text, :worlds
       end
 
       state :worlds do
         rule %r/\s+/m, Text
         rule id, Name::Namespace
         rule %r/,/m, Text
-        rule %r/\)/m, Name::Namespace, :root
+        rule %r/\)/m, Text, :root
       end
 
       state :import do

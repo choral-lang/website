@@ -26,7 +26,7 @@ class MyExample@( Server, Client, Logger ) {
     this.log = log;
  }
 
- static void sendMessage( Channel@( Server, Client ) channel ) {
+ void sendMessage( Channel@( Server, Client ) channel ) {
   String@Server message;
   message = channel.com( Panel@Client.prompt( "Insert the message for the server" ) );
   log.record( logChannel.com( message ) );
@@ -72,7 +72,7 @@ public class MyExample1 {
     this.log = log;
  }
 
- public static void sendMessage( Channel1 channel ) {
+ public void sendMessage( Channel1 channel ) {
   String message;
   message = channel.com( Unit.id );
   log.id( logChannel.com( message ) );
@@ -96,7 +96,7 @@ public class MyExample3 {
     this.log = log;
  }
 
- public static void sendMessage( Unit channel ) {
+ public void sendMessage( Unit channel ) {
   String message;
   message = channel.id;
   log.record( logChannel.com( message ) );
