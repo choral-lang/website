@@ -2,14 +2,14 @@
 layout: home
 ---
 
-[Installation](#installation) > [Syntax](#syntax) > [Compilation](#compilation) > [Execution](#execution)
+Starting tour: [Installation](#installation) > [Syntax](#syntax) > [Compilation](#compilation) > [Execution](#execution)
 
 [Advanced Examples](#advanced_examples)
 
 ## Installation
 
 - Download the jar file
-- Run `java -jar choral.jar MyProgram.ch`
+- Run <kbd>java -jar choral.jar MyProgram.ch</kbd>
 
 ## Syntax 
 
@@ -35,18 +35,18 @@ public class MyExample@( Server, Client, Logger ) {
 }
 ```
 
-Choral extends the Java type system with the concept of worlds (from [hybrid logic](https://en.wikipedia.org/wiki/Hybrid_logic)). Worlds in Choral represent separate execution nodes or endpoints, as exemplified by the traditional Client-Server endpoints (to which we added a third-party Logger) in the MyExample program above. 
+Choral extends the Java type system with the concept of worlds (from [hybrid logic](https://en.wikipedia.org/wiki/Hybrid_logic)). Worlds in Choral represent separate execution nodes or endpoints, as exemplified by the traditional Client-Server endpoints (to which we added a third-party Logger) in the class MyExample above. 
 
-Choral objects are therefore always located at one world, e.g., `String@( Client )` --- shortened in `String@Client` --- or distributed among two or more worlds, e.g. `MyExample@( Server, Client, Logger )`.
+Choral objects are therefore always located at one world, e.g., `String@( Client )` --- shortened in `String@Client` --- or distributed among two or more worlds, e.g., `MyExample@( Server, Client, Logger )`.
 
-Briefly, the program written above define an object, called `MyExample`, which is distributed among three worlds: named Server, Client, and Logger. 
+Briefly, the program written above defines a class, called `MyExample`, which is distributed among three worlds, named Server, Client, and Logger. 
 
 MyExample has two fields: 
 
-- `logChannel`: a communication Channel between the Server and the Logger endpoints. The Choral runtime provides different implementation of Channels, e.g., using local memory, sockets, local files, and their encrypted counterparts;
+- `logChannel`: a communication `Channel` between the Server and the Logger endpoints. The Choral runtime provides different implementation of `Channel`s, e.g., using local memory, sockets, local files, and their encrypted counterparts;
 - `log`: a Log object used for persistent logging, owned by the Logger endpoint.
 
-The `sendMessage` method takes as parameter a Channel between the Server and the Client. Then, when Client inputs a message (acquired through the `prompt` method, also provided by the Choral runtime), its content is sent to the Server (through the `com` method of the `channel` object).
+The `sendMessage` method takes as a parameter a `Channel` between the Server and the Client. Then, when the Client inputs a message (acquired through the `prompt` method, a courtesy utility provided by the Choral runtime), its content is sent to the Server (through the `com` method of the `channel` object).
 
 Finally, the Server first transmits the received message to the Logger, for recording, and prints out its content.
 
@@ -55,11 +55,11 @@ Finally, the Server first transmits the received message to the Logger, for reco
 To run the program we wrote above, we use the Choral compiler, which produces a set of Java classes, each implementing the behaviour of a specific endpoint.
 
 Assuming we saved the Choral program above in a file called `MyExample.ch`, we can launch the 
-Choral compiler with the command `java -jar choral.jar MyProgram.ch`.
+Choral compiler with the command <kbd>java -jar choral.jar MyProgram.ch</kbd>.
 
-The choral compiler will produce well-formatted Java classes, each implementing the part of the program relative to a specific endpoint. In our example, we will obtain three files: `MyExample1.java`, `MyExample2.java`, and `MyExample3.java`, respectively corresponding to the implementation of the program for the first, second, and, third endpoint.
+The choral compiler will produce a set of  well-formatted Java classes, each implementing the part of the program relative to a specific endpoint. In our example, we will obtain three files: `MyExample1.java`, `MyExample2.java`, and `MyExample3.java`, respectively corresponding to the implementation of the program for the first, second, and third endpoint.
 
-As an example, with `MyExample1.java` (corresponding to the implementation for the Server endpoint) we obtain:
+As an example, in `MyExample1.java` (corresponding to the implementation of the `MyExample` Choral class for the Server endpoint) we obtain:
 
 ```java
 public class MyExample1 {
@@ -81,7 +81,7 @@ public class MyExample1 {
 }
 ```
 
-Notably, fields and parameters (e.g., `log`) not belonging to the endpoint become `Unit`s objects. This allows Choral-compiled programs to closely preserve their original structure and allow reductions of terms, e.g., the expression `log.id( logChannel.com( message ) )` where method `id` supports the execution of the arguments of the original method call (`log`). In this case, it evaluates the sending of the `message` to the logger.
+Notably, fields and parameters (e.g., `log`) not belonging to the endpoint become objects of type `Unit`. `Unit` is a special class provided by the Choral runtime that allows Choral-compiled programs to closely preserve their original structure and supports the execution of side-effects in chained expressions --- e.g., the expression `log.id(logChannel.com(message))`, where the method `id` supports the evaluation of the arguments of the original method call (`log`). In this case, it executes the sending of the `message` to the logger.
 
 Dually, `MyExample3.java` is the implementation relative to the Logger: 
 
@@ -107,11 +107,11 @@ public class MyExample3 {
 Notable elements here are:
 
 - the Logger owns the "other end" of the Channel shared with the Server (logChannel as `Channel2`);
-- the removal of irrelevant effects for the endpoint, e.g., the call to `println` at the Client at the end of the `sendMessage` method.
+- the removal of irrelevant effects for the endpoint, e.g., the `Unit`-converted call to `println` at the Client at the end of the `sendMessage` method.
 
 ## Execution
 
-Once obtained the Java classes that implement our program, we can run the compiled system.
+Once we obtained the Java classes that implement our program, we can run the compiled system.
 
 To do that, in the example below we use the `LocalChannel`s (`LocalChannel1` and `LocalChannel2`) provided by the Choral runtime. To represent the distinct endpoint, we use three separate `Thread`s.
 
