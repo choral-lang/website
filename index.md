@@ -18,10 +18,10 @@ The syntax of Choral is heavily inspired by one of the most widely-used mainstre
 ```choral
 class MyExample@( Server, Client, Logger ) {
  
- Channel@( Server, Logger ) logChannel;
+ Channel< String >@( Server, Logger ) logChannel;
  Log@Logger log;
 
- MyExample( Channel@( Server, Logger ) logChannel, Log@Logger log ){
+ MyExample( Channel< String >@( Server, Logger ) logChannel, Log@Logger log ){
     this.logChannel = logChannel;
     this.log = log;
  }
@@ -43,7 +43,7 @@ Briefly, the program above:
 
 - defines a class, called `MyExample`, which is distributed among three worlds, named Server, Client, and Logger;
 - the class has two fields:
-   - `logChannel`: a communication `Channel` between the Server and the Logger endpoints. The Choral runtime provides different implementations of `Channel`s, e.g., using local memory, sockets, local files, and their encrypted counterparts;
+   - `logChannel`: a communication `Channel` between the Server and the Logger endpoints. The Choral runtime library provides different implementations of `Channel`s, e.g., using local memory, sockets, local files, and their encrypted counterparts. Choral `Channel`s also specify what type of data they can transmit safely. While in our example we restrict valid `Channel` implementations to just transmit `String`s, the Choral runtime library includes a set of `Channel` implementations able to safely transmit (serialize and deserialize) generic `Object`s (e.g., using [Google gson](https://github.com/google/gson) or [Kyro](https://github.com/EsotericSoftware/kryo));
    - `log`: a Log object used for persistent logging, owned by the Logger endpoint.
 - the class has a method `sendMessage`, which takes as a parameter a `Channel` between the Server and the Client. Then, when the Client inputs a message (acquired through the `prompt` method, a courtesy utility provided by the Choral runtime), its content is sent to the Server (through the `com` method of the `channel` object). Finally, the Server first transmits the received message to the Logger, for recording, and prints out the content of the message to its `System` output.
 
@@ -51,8 +51,7 @@ Briefly, the program above:
 
 To run the example above, we first need to compile it into Java classes using the Choral compiler.
 
-Assuming we saved the Choral program above in a file called `MyExample.ch`, we can launch the 
-Choral compiler with the command <kbd>java -jar choral.jar MyProgram.ch</kbd>.
+Assuming we saved the Choral program above in a file called `MyExample.ch`, we can launch the Choral compiler with the command <kbd>java -jar choral.jar MyProgram.ch</kbd>.
 
 The result of the compilation is a set of well-formatted Java classes, each implementing the part of the program relative to a specific endpoint. In our example, we will obtain three files: `MyExample1.java`, `MyExample2.java`, and `MyExample3.java`, respectively corresponding to the implementation of the program for the first, second, and third endpoint (starting from the left-most one, in order of declaration).
 
@@ -63,15 +62,15 @@ As an example, in `MyExample1.java` (corresponding to the implementation of the 
 ```java
 public class MyExample1 {
  
- Channel1 logChannel;
+ Channel1< String > logChannel;
  Unit log;
 
- public MyExample1( Channel1 logChannel, Unit log ){
+ public MyExample1( Channel1< String > logChannel, Unit log ){
     this.logChannel = logChannel;
     this.log = log;
  }
 
- public void sendMessage( Channel1 channel ) {
+ public void sendMessage( Channel1< String > channel ) {
   String message;
   message = channel.com( Unit.id );
   log.id( logChannel.com( message ) );
