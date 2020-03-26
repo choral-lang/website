@@ -27,8 +27,7 @@ class MyExample@( Server, Client, Logger ) {
  }
 
  void sendMessage( Channel@( Server, Client ) channel ) {
-  String@Server message;
-  message = channel.com( Panel@Client.prompt( "Insert the message for the server" ) );
+  String@Server message = channel.com( Panel@Client.prompt( "Insert the message for the server" ) );
   log.record( logChannel.com( message ) );
   System@Server.out.println( "Client sent: "@Server + message );
  }
