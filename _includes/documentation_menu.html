@@ -1,0 +1,16 @@
+{% for item_menu in site.data.documentation_menu %}
+<ul class="nav flex-column">
+  <li class="nav-item">
+    <a class="nav-link"><strong>{{ item_menu.name }}</strong></a>
+  </li>
+  <ul class="nav flex-column ml-1">
+    {% for item in item_menu.items %}
+      {% capture url %}/documentation/{{item.url}}{% endcapture %}
+    <li class="nav-item">
+      <a class="nav-link{% if url == page.url %} bg-info text-white{% endif %}" 
+      href="{{url}}"><small>{{ item.name }}</small></a>
+    </li>
+    {% endfor %}
+  </ul>
+  {% endfor %}
+</ul>

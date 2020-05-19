@@ -4,10 +4,6 @@ author: Choral Development Team
 # Add your google-analytics ID here to activate google analytics
 google_analytics:   UA-XXXXXXXXX-X # out your google-analytics code
 
-collections:
-  examples:
-    output: true
-
 # Build settings
 markdown: kramdown
 kramdown:
@@ -18,3 +14,17 @@ highlighter: rouge
 plugins:
   - jekyll-feed
   - jekyll-sitemap
+
+collections:
+  documentation:
+    output: true
+
+documentation_menu:
+  - Basics
+  - Examples
+
+menu:
+  - Documentation
+  - Downloads
+  - Sponsors
+  - About

@@ -7,18 +7,5 @@ layout: default
 
     {{ content }}
 
-    <hr class="my-5">
-
-    <h2 id="advanced_examples">Advanced Examples</h2>
-    <ul>
-      {% for example in site.examples %}
-      <li>
-        <a href="{{ example.url | prepend: site.baseurl | replace: '//', '/' }}">
-        {{ example.title }}  
-        </a>
-      </li>
-      {% endfor %}
-    </ul>
-
   </div>
 </div>
