@@ -1,13 +1,13 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark mb-5">
   <!-- <a class="navbar-brand" href="{{"/" | relative_url }}">{{ site.title | escape }}</a> -->
-  <a class="navbar-brand" href="{{"/" | relative_url }}">
-    <img class="col-md-2 col-lg-1 img-fluid" src="/img/choral_logo_small_border.png" alt="">
+  <a class="col-2 col-sm-1 navbar-brand" href="{{"/" | relative_url }}">
+    <img class="img-fluid" src="/img/choral_logo_small_border.png" alt="">
   </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarsExample03">
+  <div class="collapse navbar-collapse" id="mainMenu">
     <ul class="navbar-nav ml-auto">
       {% for item in site.menu %}
       <li class="nav-item">
