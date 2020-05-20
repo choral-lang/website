@@ -9,6 +9,9 @@
   </button>
   <div class="collapse navbar-collapse" id="mainMenu">
     <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/index.html">Home</a>
+      </li>
       {% for item in site.menu %}
       <li class="nav-item">
         <a class="nav-link" href="/{{item | downcase }}.html">{{ item }}</a>

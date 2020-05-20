@@ -3,7 +3,7 @@ layout: home
 ---
 
  <div class="row">
-  <div class="col-7 mr-auto ml-auto">
+  <div class="col-6 mr-auto ml-auto">
    <a href="/"><img class="img-fluid" src="/img/choral_logo.png"></a>
   </div>
   <div class="col-12" style="text-align: center;">
@@ -12,23 +12,10 @@ layout: home
    </p>
    <a href="/downloads.html"><button type="button" class="btn btn-primary">Install</button></a>
    <a href="/documentation.html"><button type="button" class="btn btn-info">Learn</button></a>
+   <a href="/index.html#presentation-paper"><button type="button" class="btn btn-success">Read the Paper</button></a>
   </div>
  </div>
 
-
-<div class="row">
-<div class="col-8">
-## Presentation Paper
-<large>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam porttitor
-risus eu iaculis feugiat. Nulla quis ultrices enim, et varius velit. Aenean eu
-mi non velit imperdiet fringilla ac ac dui.</large>      
-</div>
-<div class="col-4">
-<img class="img-thumbnail" src="/img/paper.png" alt="">
-</div>
-</div>
-
----
 
 ## Syntax
 
@@ -114,3 +101,40 @@ tristique ante. Etiam scelerisque augue at pharetra tempus. Pellentesque rhoncus
 luctus odio, eget luctus nisi imperdiet in. Aenean imperdiet ac eros id varius.
 Maecenas orci sem, rhoncus a venenatis vitae, consectetur sit amet massa. Ut
 aliquet ex sed rutrum blandit.
+
+---
+
+<div class="row">
+<div class="col-7">
+## Presentation Paper
+For an in-depth presentation of Choral, please refer to the paper 
+**[Choreographies as Object](https://arxiv.org/abs/2005.09520)**. 
+
+The paper presents the Choral framework for programming choreographies 
+(multiparty protocols). The framework builds on top of mainstream programming 
+abstractions: in Choral, choreographies are objects. Given a choreography 
+that defines interactions among some roles (Alice, Bob, etc.), an 
+implementation for each role in the choreography is automatically generated 
+by a compiler. These implementations are libraries in pure Java, which 
+developers can modularly compose in their own programs to participate 
+correctly in choreographies.
+</div>
+<div class="col-5">
+<a href="https://arxiv.org/abs/2005.09520">
+<img class="img-thumbnail" src="/img/paper.png" alt="">
+</a>
+</div>
+<div class="col-12">
+If you want to cite this work, please use the entry below.
+```
+@misc{GMP2020,
+   title={Choreographies as Objects},
+   author={Saverio Giallorenzo and Fabrizio Montesi and Marco Peressotti},
+   year={2020},
+   eprint={2005.09520},
+   archivePrefix={arXiv},
+   primaryClass={cs.PL}
+}
+```
+</div>
+</div>

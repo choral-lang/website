@@ -16,7 +16,7 @@ You may check the Choral compiler version. If Choral is correctly installed, you
 should see something like this:
 
 ```
-$ choral --version
+$ java -jar choral --version
 Choral 0.1
 ```
 
@@ -25,7 +25,7 @@ Now, if we want to list all the options supported by the compiler, we can run
 choral without any argument:
 
 ```
-$ choral
+$ java -jar choral
 Usage: choral [-hqvV] [--debug] [--verbosity=<LEVEL>] [COMMAND]
 
 Description:

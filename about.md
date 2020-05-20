@@ -4,6 +4,44 @@ layout: home
 
 # About
 
+---
+
+## Development Team
+
+<div class="row">
+{% for dev in site.data.developers %}
+<div class="col-2 text-center">
+<a href="{{ dev.website }}">
+<img class="img-thumbnail" src="/img/devs/{{ dev.photo }}" alt="">
+{{ dev.name }}</a>
+</div>
+{% endfor %}
+</div>
+
+---
+
+## Sponsors
+
+Choral is a project sponsored by the following organisations.
+
+<div class="row" markdown="0">
+{% for sponsor in site.data.sponsors %}
+  <div class="col-6 text-center">
+    <a href="{{sponsor.website}}">
+      <div class="border">
+        <div class="col-12">
+          <img style="max-height:5em;" class="img-fluid py-3" src="/img/sponsors/{{sponsor.photo}}" alt="">
+        </div>
+        <div class="col-12">{{sponsor.name}}</div>
+      </div>
+    </a>
+    <div class="col-12">{{sponsor.amount}}</div>
+  </div>
+{% endfor %}
+</div>
+
+---
+
 ## Code Repository
 
 The Choral official code repository is on GitHub, so any bugs you find in
@@ -13,6 +51,8 @@ Pull requests are always welcome!
 <div class="text-center text-monospace">
 <i class="fab fa-github"></i> [choral-lang/choral](https://github.com/choral-lang/choral/)
 </div>
+
+---
 
 ## Community
 

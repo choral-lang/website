@@ -1,5 +1,5 @@
 title: Choral Language Website
-author: Choral Development Team
+author: <a href="/about.html#development-team">Choral Development Team</a>
 
 # Add your google-analytics ID here to activate google analytics
 google_analytics:   UA-XXXXXXXXX-X # out your google-analytics code
@@ -26,5 +26,4 @@ documentation_menu:
 menu:
   - Documentation
   - Downloads
-  - Sponsors
   - About
