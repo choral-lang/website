@@ -1,7 +1,7 @@
 FROM ruby as Build
+COPY web /srv/jekyll
 WORKDIR /srv/jekyll
 RUN bundle install
-COPY web /srv/jekyll
 RUN bundle exec jekyll build
 RUN mv /srv/jekyll/_site /site
 

@@ -8,15 +8,12 @@ layout: home
 
 ## Development Team
 
-<div class="row">
+
+<ul>
 {% for dev in site.data.developers %}
-<div class="col-2 text-center">
-<a href="{{ dev.website }}">
-<img class="img-thumbnail" src="/img/devs/{{ dev.photo }}" alt="">
-{{ dev.name }}</a>
-</div>
+<li><a href="{{ dev.website }}">{{ dev.name }}</a></li>
 {% endfor %}
-</div>
+</ul>
 
 ---
 
