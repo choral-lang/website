@@ -1,7 +1,8 @@
 {% for item_menu in site.data.documentation_menu %}
 <ul class="nav flex-column">
   <li class="nav-item">
-    <a class="nav-link"><strong>{{ item_menu.name }}</strong></a>
+    <a class="nav-link {% if item_menu.url == page.url %} bg-info text-white{% endif %}" 
+	{% if item_menu.url %} href="{{item_menu.url}}" {% endif %}><strong>{{ item_menu.name }}</strong></a>
   </li>
   <ul class="nav flex-column ml-1">
     {% for item in item_menu.items %}

@@ -1,3 +1,5 @@
+- name: Welcome
+  url: /documentation.html
 - name: Basics
   items:
   - name: Hello Roles

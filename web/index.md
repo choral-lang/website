@@ -13,6 +13,7 @@ layout: home
    <a href="/downloads.html"><button type="button" class="btn btn-primary">Install</button></a>
    <a href="/documentation.html"><button type="button" class="btn btn-info">Learn</button></a>
    <a href="/index.html#article"><button type="button" class="btn btn-success">Read the article</button></a>
+   <a href="https://github.com/choral-lang/choral"><button type="button" class="btn btn-secondary">View the source on <i class="fab fa-github"></i></button></a>
   </div>
  </div>
 
@@ -25,6 +26,8 @@ At the press of a button, the Choral compiler generates correct implementations 
 Choral is currently interoperable with Java, but we plan on extending our support also to other programming languages in the future.
 
 Choral _does not fix any middleware_: as long as you can satisfy the types of the choreography that you are writing, you can use your own implementations of communications and existing Java code in Choral.
+
+Choral is a prototype developed as part of an ongoing research project (see the [about page](/about.html)), but it is already usable for early adoption and teaching. If you're curious, [get in touch with us](/about.html#contacts)!
 
 ## Language
 
@@ -129,6 +132,7 @@ Wanna see some real-world examples? Jump to our [documentation](/documentation.h
 ## Article
 
 If you're interested in programming languages, want to know more about how Choral works and how it relates to other works, please refer to the article **[Choreographies as Object](https://arxiv.org/abs/2005.09520)**.
+Choral has been influenced by previous work on [choreographic programming](https://www.fabriziomontesi.com/files/choreographic_programming.pdf) and the theoretical models that inspired multitier programming, like [hybrid logic](https://en.wikipedia.org/wiki/Hybrid_logic) and [Lambda 5](https://doi.org/10.1109/LICS.2004.1319623).
 </div>
 
 <div class="col-xs text-center">

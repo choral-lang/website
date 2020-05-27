@@ -1,8 +1,6 @@
-- name: University of Southern Denmark
-  photo: sdu.png
-  website: https://sdu.dk
-  amount: XXXX DKK
 - name: Velux Fonden
   photo: villum.png
-  website: https://veluxfoundations.dk
-  amount: XXXX DKK
+  website: https://veluxfoundations.dk/en
+- name: University of Southern Denmark
+  photo: sdu.png
+  website: https://www.sdu.dk/en/om_sdu/institutter_centre/imada_matematik_og_datalogi
