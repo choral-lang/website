@@ -3,138 +3,137 @@ layout: home
 ---
 
  <div class="row">
-  <div class="col-6 mr-auto ml-auto">
-   <a href="/"><img class="img-fluid" src="/img/choral_logo.png"></a>
+  <div class="col-6 mr-auto ml-auto text-center">
+   <a href="/"><img class="img-fluid w-25" src="/img/choral_logo.png"></a>
   </div>
-  <div class="col-12" style="text-align: center;">
+  <div class="col-12 text-center">
   <p style="font-variant: small-caps;">
    a choreographic programming language
    </p>
    <a href="/downloads.html"><button type="button" class="btn btn-primary">Install</button></a>
    <a href="/documentation.html"><button type="button" class="btn btn-info">Learn</button></a>
-   <a href="/index.html#presentation-paper"><button type="button" class="btn btn-success">Read the Paper</button></a>
+   <a href="/index.html#article"><button type="button" class="btn btn-success">Read the article</button></a>
   </div>
  </div>
 
+<!-- ## What -->
 
-## Syntax
+Choral is a language for the programming of _choreographies_.
+A choreography is a multiparty protocol that defines how some _roles_ (the proverbial Alice and Bob) should coordinate with each other in a decentralised way.
+At the press of a button, the Choral compiler generates correct implementations for each role, which implementors can use as libraries in their own programs to participate correctly in concurrent and distributed systems.
 
-The syntax of Choral is inspired by one of the most widely-used mainstream
-languages: Java. Thus, Java developers (and akin, like C++/#) benefit from a
-graceful learning curve to grasp the main concepts of the Choral language.
+Choral is currently interoperable with Java, but we plan on extending our support also to other programming languages in the future.
+
+Choral _does not fix any middleware_: as long as you can satisfy the types of the choreography that you are writing, you can use your own implementations of communications and existing Java code in Choral.
+
+## Language
+
+If you just want to glance at how a Choral program looks like, you can jump to [Alice, Bob, and Carol go to a meeting](#alice-bob-and-carol-go-to-a-meeting) and then come back here for the details.
+
+Choral is an object-oriented language with a twist: Choral objects have types of the form `T@(R1, ..., Rn)`, where `T` is the
+interface of the object (as usual), and `R1, ..., Rn` are the roles that _collaboratively implement the object_. (Technically, Choral data types are higher-kinded types parameterised on roles, which generalise ideas previosly developed for choreographies and multitier programming; more on that at [the end of this page](#article).)
+
+Incorporating roles in data types makes distribution manifest at the type level. For example, we can write a trivial program that prints hello messages in parallel at two roles `Alice` and `Bob`.
 
 ```choral
-class MyExample@( Server, Client, Logger ) {
- 
- Channel< String >@( Server, Logger ) logChannel;
- Log@Logger log;
-
- MyExample( Channel< String >@( Server, Logger ) logChannel, Log@Logger log ){
-    this.logChannel = logChannel;
-    this.log = log;
- }
-
- void sendMessage( Channel@( Server, Client ) channel ) {
-  String@Server message = channel.com( Panel@Client.prompt( "Insert the message for the server" ) );
-  log.record( logChannel.com( message ) );
-  System@Server.out.println( "Client sent: "@Server + message );
- }
+class HelloWorlds@(Alice, Bob) {	// A class of objects distributed over two roles, called Alice and Bob
+	public static void main() {
+		System@Alice.out("Hello from Alice"@Alice);	// Print "Hello from Alice" at Alice
+		System@Bob.out("Hello from Bob"@Bob);		// Print "Hello from Bob" at Bob
+	}
+}
 ```
----
 
-## Development Process 
-
-Phasellus eget sagittis est. Suspendisse vestibulum lectus in ligula ultricies
-rhoncus. Cras eget vehicula justo, non aliquam risus. Curabitur vitae lorem sit
-amet neque hendrerit tristique. Mauris eu finibus nulla, id fermentum nisi. Nunc
-fermentum, mauris eget facilisis tincidunt, urna purus blandit nibh, non
-vulputate velit velit eu ante. Pellentesque volutpat lectus leo, vitae venenatis
-ipsum euismod id. Mauris in accumsan lacus. Sed fringilla elementum velit, eu
-ultrices quam aliquam vitae. Pellentesque habitant morbi tristique senectus et
-netus et malesuada fames ac turpis egestas.
-
-<div class="row">
-<div class="col-12">
-<img class="img-fluid" src="/img/development_process.png" alt="">
-</div>
-</div>
-
----
-
-## Type System
-
-Cras lobortis consequat tincidunt. Vestibulum ante ipsum primis in faucibus orci
-luctus et ultrices posuere cubilia curae; Quisque sed tortor gravida, blandit
-elit et, ultrices nulla. Praesent ultrices accumsan ipsum, at mattis arcu
-tincidunt rhoncus. Vestibulum eleifend, lectus sit amet porta maximus, nibh
-augue varius nisl, non venenatis massa mauris sit amet mauris. Quisque placerat
-elit vel ipsum tincidunt fermentum. Quisque venenatis finibus est, vitae
-placerat tellus facilisis eget.
+Class `HelloWorlds` is not very interesting, because `Alice` and `Bob` do not interact.
+Interaction is achieved by invoking methods that can "move" data from one role to another, like the `com` method of interface `SymChannel`.
+We give a simplified view of this interface below (see the details in the documentation of [channels](/basics/channels.html)).
 
 ```choral
-class Wrong@( Wrong, Wrong, Wrong1 ) {
- 
- Channel< Wrong >@( Wrong, Wrong ) logChannel;
- Wrong@Wrong wrong;
+// A bidirectional communication channel between two roles A and B
+interface SymChannel@(A, B) {
+	public void <T> T@B com(T@A mesg);	// given data of type T at A, returns data of type T at B
+	/* more methods, not shown here... */
+}
+```
 
- Wrong( Channel< Wrong >@( Wrong, Wrong1 ) logChannel, Wrong@Wrong wrong ){
-    this.logChannel = logChannel;
-    this.wrong = wrong;
- }
+Using channels we can write more interesting choreographies, as we exemplify in the next multiparty protocol for deciding on a meeting.
 
- void wrong( Channel@( Wrong, Wrong1 ) channel ) {
-  Wrong@Wrong1 message = channel.com();
- }
+### Alice, Bob, and Carol go to a meeting
+
+Alice calls Bob to ask if they could have a meeting with Carol on some `topic`.
+Bob wants to know whether Carol could go first, so he asks her. If she can go, then he considers it himself. In the end, Alice needs to know the final result on whether the meeting can take place from Bob.
+
+We can define this protocol as the class below. Note that Choral borrows the forward chaining operator `>>` from F#: in the following, `expression >> object::method` means `object.method(expression)`.
+
+
+```choral
+class MeetingVote@(Alice, Bob, Carol) {
+	public static Boolean@Alice run(
+		SymChannel@(Alice, Bob)<Object> chAB,		// A bidirectional channel between Alice and Bob that can transfer objects
+		SymChannel@(Bob, Carol)<Object> chBC,		// A bidirectional channel between Bob and Carol that can transfer objects
+		String@Alice topic,				// Alice's topic for the meeting
+		Predicate@Bob<String> bobsPredicate,		// Bob's predicate to decide whether he could go
+		Predicate@Carol<String> carolsPredicate		// Carol's predicate to decide whether she could go
+	) {
+		String@Bob x = topic >> chAB<String>::com;	// Alice's topic is communicated to Bob
+		Boolean@Bob carolsChoice =
+			x					// Bob's copy of the topic..
+			>> chBC<String>::com			// ..is communicated to Carol.
+			>> carolsPredicate::test		// Then Carol decides whether she wants to go..
+			>> chBC<Boolean>::com;			// ..and communicates it to Bob.
+
+		// Now Bob considers going only if Carol goes, and communicates the decision to Alice.
+		return (carolsChoice && bobsPredicate.test(x)) >> chAB<Boolean>::com;
+	}
 }
 ```
 
 ---
 
-## Seamless integration with existing Java code
+## Development Methodology (or: how to use Choral)
 
-Donec in diam posuere, porttitor neque in, vehicula felis. Vivamus sagittis
-sapien et neque lacinia lobortis. Mauris ligula magna, consectetur eget luctus
-pharetra, bibendum sed enim. Integer pharetra turpis ac arcu aliquam, nec
-pretium nibh porttitor. Vestibulum ante ipsum primis in faucibus orci luctus et
-ultrices posuere cubilia curae; Donec dapibus ut mi sit amet interdum. Nunc eu
-tristique ante. Etiam scelerisque augue at pharetra tempus. Pellentesque rhoncus
-luctus odio, eget luctus nisi imperdiet in. Aenean imperdiet ac eros id varius.
-Maecenas orci sem, rhoncus a venenatis vitae, consectetur sit amet massa. Ut
-aliquet ex sed rutrum blandit.
+<p class="w-100 text-center"><img class="img-fluid w-25 rounded" src="/img/methodology.png" alt=""></p>
+<p class="w-100 text-center" style="font-variant: small-caps;">
+Choral's development methodology
+</p>
+
+Choral is designed to generate correct implementations of choreographies as Java libraries.
+
+For example, given a choreography like the one above for the roles `Alice`, `Bob`, and `Carol`, the Choral compiler generates a Java library for each role.
+Each library offers an API that the programmer can use inside of their own project to participate in the choreography correctly within a concurrent/distributed system.
+
+Let's have a look at the code that would be generated for Alice's Java library.
+
+```java
+class MeetingVote_Alice {
+	public static Boolean run(
+		SymChannel_A<Object> chAB,	// Alice's end of her channel with Bob
+		String topic			// Alice's topic for the meeting
+	) {
+		chAB<String>.com(topic);	// Alice sends her topic to Bob
+		return chAB<Boolean>::com;	// return what is received from Bob
+	}
+}
+```
+
+Notice that all code that has nothing to do with Alice from the choreography has disappeared. In other words, Alice does only what pertains her.
+
+A Java developer can now import `MeetingVote_Alice` and invoke method `run` to coordinate correctly with third-party implementations of Bob and Carol.
+
+Wanna see some real-world examples? Jump to our [documentation](/documentation.html).
 
 ---
 
 <div class="row">
-<div class="col-7">
-## Presentation Paper
-For an in-depth presentation of Choral, please refer to the paper 
-**[Choreographies as Object](https://arxiv.org/abs/2005.09520)**. 
+<div class="col-xl">
+## Article
 
-The paper presents the Choral framework for programming choreographies 
-(multiparty protocols). The framework builds on top of mainstream programming 
-abstractions: in Choral, choreographies are objects. Given a choreography 
-that defines interactions among some roles (Alice, Bob, etc.), an 
-implementation for each role in the choreography is automatically generated 
-by a compiler. These implementations are libraries in pure Java, which 
-developers can modularly compose in their own programs to participate 
-correctly in choreographies.
+If you're interested in programming languages, want to know more about how Choral works and how it relates to other works, please refer to the article **[Choreographies as Object](https://arxiv.org/abs/2005.09520)**.
 </div>
-<div class="col-5">
+
+<div class="col-xs text-center">
 <a href="https://arxiv.org/abs/2005.09520">
-<img class="img-thumbnail" src="/img/paper.png" alt="">
+<img class="img-thumbnail w-25" src="/img/paper.png" alt="">
 </a>
-</div>
-<div class="col-12">
-If you want to cite this work, please use the entry below.
-```
-@misc{GMP2020,
-   title={Choreographies as Objects},
-   author={Saverio Giallorenzo and Fabrizio Montesi and Marco Peressotti},
-   year={2020},
-   eprint={2005.09520},
-   archivePrefix={arXiv},
-   primaryClass={cs.PL}
-}
-```
 </div>
 </div>
