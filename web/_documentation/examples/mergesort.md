@@ -62,7 +62,33 @@ public class Mergesort@( A, B, C ){
     } 
   }
   
-  private List@A<Integer> merge( List@B<Integer> lhs, List@C<Integer> rhs ) { /* ... */ } }
+  private List@A< Integer > merge ( List@B< Integer> lhs, List@C< Integer> rhs ) {
+    if( lhs.size() > 0@B ) {
+      select( MChoice@B.L, ch_AB ); select( MChoice@B.L, ch_BC );
+      if( rhs.size() > 0@C ){
+        select( MChoice@C.L, ch_CA ); select( MChoice@C.L, ch_BC );
+        ArrayList@A< Integer > result = new ArrayList@A< Integer >();
+        if( lhs.get( 0@B ) <= ch_BC.< Integer >com( rhs.get( 0@C ) ) ){
+          select( MChoice@B.L, ch_AB ); select( MChoice@B.L, ch_BC );
+          lhs.get( 0@B ) >> ch_AB::< Integer >com >> result::add;
+          merge( lhs.subList( 1@B, lhs.size() ), rhs ) >> result::addAll;
+          return result;
+        } else {
+          select( MChoice@B.R, ch_AB ); select( MChoice@B.R, ch_BC );
+          rhs.get( 0@C ) >> ch_CA::< Integer >com >> result::add;
+          merge( lhs, rhs.subList( 1@C, rhs.size() ) ) >> result::addAll;
+          return result;
+        }
+      } else {
+        select( MChoice@C.R, ch_CA ); select( MChoice@C.R, ch_BC );
+        return lhs >> ch_AB::< List< Integer > >com;
+      }
+    } else {
+      select( MChoice@B.R, ch_AB ); select( MChoice@B.R, ch_BC );
+      return rhs >> ch_CA::< List< Integer > >com;
+    }
+  }
+}
 ```
 
 The sorting algorithm is implemented by the sort method, which uses the private merge method (omitted) to recursively handle the point-wise merging of ordered lists. For lists of size greater than 1, the algorithm creates two new `Mergesort` objects by instantiating roles such that they get switched as we discussed, splits the list at the master, communicates the resulting sublists to the slaves, recursively invokes merge sort with the switched roles, and finally merges the results.
