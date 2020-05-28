@@ -1,5 +1,6 @@
 ---
 layout: home
+title: Downloads
 ---
 
 # Download Choral

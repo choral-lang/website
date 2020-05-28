@@ -1,5 +1,6 @@
 ---
 layout: documentation
+title: Documentation
 ---
 
 # Welcome to the Choral documentation

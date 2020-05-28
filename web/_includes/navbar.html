@@ -14,7 +14,7 @@
       </li>
       {% for item in site.menu %}
       <li class="nav-item">
-        <a class="nav-link" href="/{{item | downcase }}.html">{{ item }}</a>
+        <a class="nav-link{% if page.title == item or page.ancestor == item %} border-bottom text-white{% endif %}" href="/{{ item | downcase }}.html">{{ item }}</a>
       </li>
       {% endfor %}
     </ul>

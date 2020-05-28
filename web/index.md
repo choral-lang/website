@@ -3,8 +3,8 @@ layout: home
 ---
 
  <div class="row">
-  <div class="col-6 mr-auto ml-auto text-center">
-   <a href="/"><img class="img-fluid w-25" src="/img/choral_logo.png"></a>
+  <div class="col-6 col-sm-4 mr-auto ml-auto text-center">
+   <a href="/"><img class="img-fluid" src="/img/choral_logo.png"></a>
   </div>
   <div class="col-12 text-center">
   <p style="font-variant: small-caps;">
@@ -128,16 +128,16 @@ Wanna see some real-world examples? Jump to our [documentation](/documentation.h
 ---
 
 <div class="row">
-<div class="col-xl">
+<div class="col-12 col-md-8 col-lg-9 col-xl-10">
 ## Article
 
 If you're interested in programming languages, want to know more about how Choral works and how it relates to other works, please refer to the article **[Choreographies as Object](https://arxiv.org/abs/2005.09520)**.
 Choral has been influenced by previous work on [choreographic programming](https://www.fabriziomontesi.com/files/choreographic_programming.pdf) and the theoretical models that inspired multitier programming, like [hybrid logic](https://en.wikipedia.org/wiki/Hybrid_logic) and [Lambda 5](https://doi.org/10.1109/LICS.2004.1319623).
 </div>
 
-<div class="col-xs text-center">
+<div class="col-4 col-md-4 col-lg-3 col-xl-2 mx-auto">
 <a href="https://arxiv.org/abs/2005.09520">
-<img class="img-thumbnail w-25" src="/img/paper.png" alt="">
+<img class="img-thumbnail" src="/img/paper.png" alt="">
 </a>
 </div>
 </div>
