@@ -96,10 +96,14 @@ class MeetingVote@(Alice, Bob, Carol) {
 
 ## Development Methodology (or: how to use Choral)
 
-<p class="w-100 text-center"><img class="img-fluid w-25 rounded" src="/img/methodology.png" alt=""></p>
-<p class="w-100 text-center" style="font-variant: small-caps;">
+<div markdown=0>
+<div class="text-center mx-auto col-6 col-md-5">
+	<img class="img-fluid" src="/img/methodology.png" alt="">
+</div>
+<div class="text-center" style="font-variant: small-caps;">
 Choral's development methodology
-</p>
+</div>
+</div>
 
 Choral is designed to generate correct implementations of choreographies as Java libraries.
 
