@@ -4,6 +4,7 @@ title: Merge Sort
 parent: Examples
 ancestor: Documentation
 url: examples/merge_sort
+github_code: https://github.com/choral-lang/examples/tree/master/mergesort
 ---
 
 # Merge Sort

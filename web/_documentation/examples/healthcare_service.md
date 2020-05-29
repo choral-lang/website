@@ -4,6 +4,7 @@ title: Healthcare Service
 parent: Examples
 ancestor: Documentation
 url: examples/healthcare_service
+github_code: https://github.com/choral-lang/examples/tree/master/vitals%20streaming
 ---
 
 # Healthcare Service
