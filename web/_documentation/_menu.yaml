@@ -20,3 +20,5 @@
     url: examples/healthcare_service.html
   - name: Merge sort
     url: examples/mergesort.html
+- name: Testing
+  url: /documentation/testing.html

@@ -30,7 +30,7 @@ Choral is supported by the Villum Foundation grant [Choreographies for Connected
 
 ## Contacts
 
-If you're interested in Choral, you're welcome to get in touch with any of the people below, start a discussion on our GitHub project (see the [next section](#code-repository)), or contact directly the principal investigator [Fabrizio Montesi](https://fabriziomontesi.com).
+If you're interested in Choral, you're welcome to get in touch with any of the people below, start a discussion on our GitHub project (see the [next section](#code-repository)), or contact the PI [Fabrizio Montesi](https://fabriziomontesi.com).
 
 <ul>
 {% for dev in site.data.developers %}
@@ -44,6 +44,6 @@ If you're interested in Choral, you're welcome to get in touch with any of the p
 
 The Choral official code repository is on GitHub, where you can also post issues and start discussions on the language, compiler, or standard library.
 
-<div class="text-center text-monospace">
+<p class="text-center text-monospace">
 <i class="fab fa-github"></i> [choral-lang/choral](https://github.com/choral-lang/choral/)
-</div>
+</p>

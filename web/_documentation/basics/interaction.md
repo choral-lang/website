@@ -19,7 +19,7 @@ For instance, if a choreography needs only a directed channel, then our type sys
 
 ## Directed data channels
 
-We start our exploration of interaction in Choral from simple directed channels for transporting data. In Choral, such a channel is just an object (if you prefer, call it a choreography) that takes data from one place to another. We can specify this as an interface.
+We start our exploration of interaction in Choral from simple directed channels for transporting data. In Choral, this is an object that takes data from one place to another. We specify this as an interface.
 
 ```choral
 interface DiDataChannel@( A, B )< T@X > { 
