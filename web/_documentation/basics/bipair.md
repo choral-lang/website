@@ -29,6 +29,10 @@ class BiPair@(A, B)<L@X, R@Y> {
 }
 ```
 
+<p class="text-center text-monospace">
+Try it yourself: see the [source code](https://github.com/choral-lang/examples/tree/master/bipair) on <i class="fab fa-github"></i>.
+</p>
+
 Class `BiPair` is distributed between roles `A` and `B` and has two fields, `left` and `right`.
 The class is also parameterised on two data types, `L` and `R`, which exemplifies our support for [generics](https://en.wikipedia.org/wiki/Generics_in_Java). 
 In the class declaration, `L@X` specifies that `L` is expected to be a data type parameterised over a single role, abstracted by `X`; similarly for `R@Y`. 

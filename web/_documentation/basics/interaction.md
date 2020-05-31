@@ -77,7 +77,7 @@ static < T > T roundTrip (
 
 Observe how the inner method call, `chAB.com< T >( mesg )`, should return something, such that it can trigger the execution of the outer method call to receive the response. Therefore, the `com` method of `DiDataChannel_A` cannot have `void` as return type.
 
-Programming language experts have probably guessed by now that the solution is to use `unit` values instead of `void`. Indeed, Choral defines a singleton type `Unit`, a final class that the Choral compiler uses instead of `void` to obtain Java code whose structure resembles its Choral source code.
+Programming language experts have probably guessed by now that the solution is to use `Unit` values instead of `void`. Indeed, Choral defines a singleton type `Unit`, a final class that the Choral compiler uses instead of `void` to obtain Java code whose structure resembles its Choral source code.
 
 We now show the Java code produced by our compiler from `DiDataChannel` for both `A` and `B`.
 

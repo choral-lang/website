@@ -44,6 +44,10 @@ class HelloRoles@(A, B) {
 }
 ```
 
+<p class="text-center text-monospace">
+Try it yourself: see the [source code](https://github.com/choral-lang/examples/tree/master/hello-roles) on <i class="fab fa-github"></i>.
+</p>
+
 The code above defines a class, `HelloRoles`, parameterised over two roles, `A` and `B`.
 <!-- The example is useful to show that the single-role notation seen before, e.g., `String@Role` is syntactic sugar for `String@(A)` where the full `@(...)` notation surrounds the declaration of the (singleton) list of roles of that data type. -->
 Its method `sayHello` defines a variable `a` of type "String at A" (`String@A`) to which we assign the value `"Hello from A"` located at `A` (`"Hello from A"@A`).
@@ -86,7 +90,7 @@ class HelloRoles_B {
 
 Each generated class contains only the instructions that pertain that role. 
 
-If Java developers want to implement the behaviour of method `sayHello` for a specific role of the `HelloRoles` choreography, say `A`, they just need to invoke the generated `sayHello` method in the respective generated class (`HelloRoles_A`). 
+If Java developers want to implement the behaviour of method `sayHello` for a specific role of the `HelloRoles` choreography, say `A`, they just need to invoke the generated `sayHello` method in the respective generated class (`HelloRoles_A`).
 
 <div class="border border-info bg-light px-5">
 Using the `@` symbol in types comes from tradition in [hybrid logic](https://en.wikipedia.org/wiki/Hybrid_logic), where `@` is used to express the "world" at which a statement is valid. Similarly, in Choral, `@` expresses the roles at which a data type lives.

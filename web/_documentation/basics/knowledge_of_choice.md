@@ -12,7 +12,7 @@ Knowledge of choice is a hallmark challenge of choreographies: when a choreograp
 
 We exemplify the challenge with the following code, which implements the consumption of a stream of items from a producer `A` to a consumer `B`.
 
-```
+```choral
 // wrong implementation
 consumeItems( 
   DiDataChannel@( A, B )< Item > ch, 
@@ -71,6 +71,10 @@ consumeItems(
   } 
 }
 ```
+
+<p class="text-center text-monospace">
+Try it yourself: see the [source code](https://github.com/choral-lang/examples/tree/master/consume-items) on <i class="fab fa-github"></i>.
+</p>
 
 Differently from the previous broken implementation of `consumeItems`, now role `A` sends a selection of either `GO` or `STOP` to `B`. Role `B` can now inspect the received enumerated value to infer whether it should execute the code for the if- or the else-branch of the conditional. 
 

@@ -6,12 +6,13 @@ title: Documentation
 # A tour of Choral
 
 Welcome to the Choral tutorials, where we are going to have a brief tour of Choral's key linguistic features and a few examples.[^article]
-Make sure that you've read our [home page](/index.html) first.
+We're still working quite a bit on improving Choral and this website, which are still in their early lives. Feedback and proposals are welcome at the [github repository of this website](https://github.com/choral-lang/website).
 
+Make sure that you've read our [home page](/index.html) first.
 Once you're ready, you can begin going through our tutorials by clicking the button at the end of this page.
 If you want to try the examples listed in the documentation, please <span class="bg-warning">[download the Choral compiler](/install)</span> first.[^try-online]
 
-All the code that we show in the tutorials is available at the following code repository.
+All the code that we show in the tutorials (and more) is available at the following code repository.
 
 <p class="text-center text-monospace">
 <i class="fab fa-github"></i> [choral-lang/examples](https://github.com/choral-lang/examples/)

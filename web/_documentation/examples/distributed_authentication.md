@@ -78,6 +78,10 @@ public class DistAuth@( Client, Service, IP ){
 }
 ```
 
+<p class="text-center text-monospace">
+Try it yourself: see the [source code](https://github.com/choral-lang/examples/tree/master/distributed-authentication) on <i class="fab fa-github"></i>.
+</p>
+
 Class `DistAuth` is a multiparty protocol parameterised over three roles: `Client`, `Service`, and `IP` (for Identity Provider). 
 
 It composes two channels as fields, which respectively connect `Client` to `IP` and `Service` to `IP`&mdash;hence, interaction between `Client` and `Service` can only happen if coordinated by `IP`. 
