@@ -21,12 +21,11 @@ title: Home
 <!-- ## What -->
 
 Choral is a language for the programming of _choreographies_.
-A choreography is a multiparty protocol that defines how some _roles_ (the proverbial Alice and Bob) should coordinate with each other in a decentralised way.
-At the press of a button, the Choral compiler generates correct implementations for each role, which implementors can use as libraries in their own programs to participate correctly in concurrent and distributed systems. Choral's generated libraries are guaranteed to be _compliant_ with their source choreographies.
+A choreography is a multiparty protocol that defines how some _roles_ (the proverbial Alice, Bob, etc.) should coordinate with each other to do something together. Examples include distributed authentication protocols, cryptographic protocols, business processes, and parallel algorithms.
+
+At the press of a button, the Choral compiler translates a choreography into a library for each role. Each library is guarantee to be _compliant_ with its source choreography. Developers who need to implement the participant of a choreography (like a client, or a service) can now use these libraries to make sure that their programs will follow the right steps.
 
 Choral is currently interoperable with Java, but we plan on extending it to support also other programming languages in the future.
-
-Choral _does not fix any middleware_: as long as you can satisfy the types of the choreography that you are writing, you can use your own implementations of communications and existing Java code in Choral. The Choral type system forces you to specify the communication requirements of your choreographies explicitly (channel topology, type of transmissible data, etc.).
 
 Choral is a prototype developed as part of an ongoing research project (see the [about page](/about.html)), but it is already usable for early adoption and teaching. If you're curious, you can [try it out yourself](/install.html) and [get in touch with us](/about.html#contacts)!
 
@@ -37,10 +36,10 @@ If you just want to glance at how a Choral program looks like, you can jump to [
 Choral is an object-oriented language with a twist: Choral objects have types of the form `T@(R1, ..., Rn)`, where `T` is the
 interface of the object (as usual), and `R1, ..., Rn` are the roles that _collaboratively implement the object_. (Technically, Choral data types are higher-kinded types parameterised on roles, which generalise ideas previosly developed for choreographies and multitier programming; more on that at [the end of this page](#article).)
 
-Incorporating roles in data types makes distribution manifest at the type level. For example, we can write a trivial program that prints hello messages in parallel at two roles `Alice` and `Bob`.
+Incorporating roles in data types makes distribution manifest at the type level. For example, we can write a simple program that prints hello messages in parallel at two roles `Alice` and `Bob`.
 
 ```choral
-class HelloWorlds@(Alice, Bob) {	// A class of objects distributed over two roles, called Alice and Bob
+class Hellos@(Alice, Bob) {	// A class of objects distributed over two roles, called Alice and Bob
 	public static void main() {
 		System@Alice.out("Hello from Alice"@Alice);	// Print "Hello from Alice" at Alice
 		System@Bob.out("Hello from Bob"@Bob);		// Print "Hello from Bob" at Bob
@@ -48,7 +47,7 @@ class HelloWorlds@(Alice, Bob) {	// A class of objects distributed over two role
 }
 ```
 
-Class `HelloWorlds` is not very interesting, because `Alice` and `Bob` do not interact.
+Class `Hellos` is not very interesting, because `Alice` and `Bob` do not interact.
 Interaction is achieved by invoking methods that can "move" data from one role to another, like the `com` method of interface `SymChannel`.
 We give a simplified view of this interface below (see the details in the documentation of [channels](/basics/channels.html)).
 
@@ -60,7 +59,9 @@ interface SymChannel@(A, B) {
 }
 ```
 
-Using channels we can write more interesting choreographies, as we exemplify in the next multiparty protocol for deciding on a meeting.
+Choral _does not fix any middleware_: as long as you can satisfy the types of the choreography that you are writing, you can use your own implementations of communications and existing Java code in Choral. The Choral type system forces you to specify the communication requirements of your choreographies explicitly (channel topology, type of transmissible data, etc.).
+
+Using channels, we can write more interesting choreographies, as we can see in the next example.
 
 ### Alice, Bob, and Carol go to a meeting
 
@@ -105,7 +106,10 @@ Choral's development methodology
 </div>
 </div>
 
-Choral is designed to generate correct implementations of choreographies as Java libraries. In Choral's development methodology (figure above): the intended coordination that a system should follow is written as a Choral choreography; then, the Choral compiler generates a Java library for each role defined in the choreography; finally, programmers can use these libraries in their own local implementations of each system participant (a service, a client, an actor, etc.).
+Choral is designed to generate correct implementations of choreographies as Java libraries. In Choral's development methodology (figure above):
+- the intended coordination that a system should follow is written as a Choral choreography;
+- then, the Choral compiler generates a Java library for each role defined in the choreography;
+- finally, programmers can use these libraries in their own local implementations of each system participant (a service, a client, an actor, etc.).
 
 For example, given a choreography like the one above for the roles `Alice`, `Bob`, and `Carol`, the Choral compiler generates a Java library for each role.
 Each library offers an API that the programmer can use inside of their own project to participate in the choreography correctly within a concurrent/distributed system.
@@ -128,7 +132,8 @@ Notice that all code that has nothing to do with Alice from the choreography has
 
 A Java developer can now import `MeetingVote_Alice` and invoke method `run` to coordinate correctly with third-party implementations of Bob and Carol.
 
-Wanna see some real-world examples? Jump to our [documentation](/documentation.html).
+This was a simple example.
+Wanna see something more realistic? Jump to our [documentation](/documentation.html).
 
 ---
 
@@ -137,8 +142,9 @@ Wanna see some real-world examples? Jump to our [documentation](/documentation.h
 - Choral saves you time. In our first use cases, Choral reduced the lines of code that we had to write from 50% up to almost 400%.
 - Choral makes your coordination code safer.
   * Its compiler takes care of implementing the local behaviour of each participant for you. Implementing correct local behaviour manually is hard.
-  * It prevents entire classes of errors in the implementation of a choreography, like programs performing incompatible communication actions, wrong pre-/post-processing of data, and 
+  * It prevents entire classes of errors in the implementation of a choreography, like distributed programs performing incompatible communication actions and wrong pre-/post-processing of data.
   * It gives you a global view on how roles coordinate with each other, so spotting inconsistencies is easier.
+- You retain control of your library APIs: the method signatures of the compiled Java libraries are homomorphic to (they resemble the structure of) those in the source choreography. Essentially, what you see is what you get.
 
 We think that Choral has the potential to be especially relevant for business processes, microservices, security protocols, and distributed services in general.
 
