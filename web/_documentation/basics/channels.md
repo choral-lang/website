@@ -12,7 +12,7 @@ url: basics/channels
 Choral types give us a new way to specify requirements on channels that prior work implicitly assumed, leading to the definition of a family of channel interfaces diagrammed below.
 
 <div markdown=0>
-<a target="_blank" href="/img/channels.png"><img class="img-fluid" src="/img/channels.png" alt=""></a>
+<a target="_blank" href="/img/channels.png"><img class="img-fluid" src="/img/channels.jpg" alt=""></a>
 </div>
 
 From the left-most column, at the top, we find `DiDataChannel`, representing a directed channel parameterised over `T` (the type of the data that can be sent). We obtain `BiDataChannel`, a bidirectional data channel, by extending `DiDataChannel` once for each direction: 1 it binds the role parameters of one extension in the same order given for the role parameters of `BiDataChannel`, giving us a direction from `A` to `B` and 2 it binds the role parameters of the other extension in the opposite way, giving us a direction from `B` to `A`. 
