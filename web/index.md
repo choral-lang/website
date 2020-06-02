@@ -21,13 +21,16 @@ title: Home
 <!-- ## What -->
 
 Choral is a language for the programming of _choreographies_.
-A choreography is a multiparty protocol that defines how some _roles_ (the proverbial Alice, Bob, etc.) should coordinate with each other to do something together. Examples include distributed authentication protocols, cryptographic protocols, business processes, and parallel algorithms.
+A choreography is a multiparty protocol that defines how some _roles_ (the proverbial Alice, Bob, etc.) should coordinate with each other to do something together.
 
-At the press of a button, the Choral compiler translates a choreography into a library for each role. Each library is guarantee to be _compliant_ with its source choreography. Developers who need to implement the participant of a choreography (like a client, or a service) can now use these libraries to make sure that their programs will follow the right steps.
+You can use Choral to program distributed authentication protocols, cryptographic protocols, business processes, parallel algorithms, or any other protocol for concurrent and distributed systems.
+At the press of a button, the Choral compiler translates a choreography into a library for each role.
+Developers can now use your libraries to make sure that their programs (like a client, or a service) follow your choreography correctly (see [Choral's methodology](#development-methodology-or-what-choral-does)). Choral makes sure that your libraries are _compliant_ implementations of your choreography, makes you more productive, and prevents you from writing incompatible implementations of communications (see [Choral's advantages](#what-advantages-does-choral-bring)).
+
+Choral is a prototype: it is developed as part of an ongoing research project (see the [about page](/about.html)), and future releases might break backwards compatibility. It is already usable for early adoption and teaching.
+If you're curious, you can [try it out yourself](/install.html) and [get in touch with us](/about.html#contacts)!
 
 Choral is currently interoperable with Java, but we plan on extending it to support also other programming languages in the future.
-
-Choral is a prototype developed as part of an ongoing research project (see the [about page](/about.html)), but it is already usable for early adoption and teaching. If you're curious, you can [try it out yourself](/install.html) and [get in touch with us](/about.html#contacts)!
 
 ## Language
 
