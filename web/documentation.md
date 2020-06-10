@@ -10,7 +10,7 @@ We're still working quite a bit on improving Choral and this website, which are 
 
 Make sure that you've read our [home page](/index.html) first.
 Once you're ready, you can begin going through our tutorials by clicking the button at the end of this page.
-If you want to try the examples listed in the documentation, please <span class="bg-warning">[download the Choral compiler](/install)</span> first.[^try-online]
+If you want to try the examples listed in the documentation, please <span class="bg-warning">[download the Choral compiler](/install.html)</span> first.[^try-online]
 
 All the code that we show in the tutorials (and more) is available at the following code repository.
 
