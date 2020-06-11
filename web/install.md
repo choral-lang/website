@@ -55,7 +55,7 @@ $ choral
 Usage: choral [-hqvV] [--debug] [--verbosity=<LEVEL>] [COMMAND]
 
 Description:
-A compiler for the choral programming language.
+A compiler for the Choral programming language.
 https://choral-lang.org/
 
 Options:
@@ -73,3 +73,13 @@ Commands:
   headers, chh              Generate choral header files (.chh).
   generate-completion       Generate bash/zsh completion script for choral.
 ```
+
+## Choral's commands
+
+For each command, you can get help by invoking the `-h` or `--help` option.
+For example, to get help on how to use the `epp` command (for compiling Choral code to Java), invoke `choral epp -h`.
+
+Here's a brief overview of the main commands.
+
+- Use `choral epp ChoralName` to compile the Choral interface or class `ChoralName` to Java.
+- Use `choral check ChoralName` to check that the Choral interface or class `ChoralName` is well-typed and can be compiled.

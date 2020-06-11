@@ -61,7 +61,7 @@ Roles are part of data types in Choral, adding a new dimension to typing. For ex
 
 Given the class `HelloRoles`, the Choral compiler generates for each role a Java class with the behaviour for that role, in compliance with the source Choral class.
 
-Assuming we saved the Choral program above in a file called `HelloWorlds.ch`, we can launch the Choral compiler with the command <kbd>java -jar choral.jar HelloWorlds.ch</kbd>.
+Assuming we saved the Choral program above in a file called `HelloWorlds.ch`, we can launch the Choral compiler with the command <kbd>choral epp HelloWorlds</kbd>.
 
 We will obtain two Java classes: the Java class for role `A` is `HelloRoles_A` and the class for `B` is `HelloRoles_B`.
 
