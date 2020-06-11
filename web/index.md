@@ -126,7 +126,7 @@ class MeetingVote_Alice {
 		String topic			// Alice's topic for the meeting
 	) {
 		chAB<String>.com(topic);	// Alice sends her topic to Bob
-		return chAB<Boolean>.com;	// return what is received from Bob
+		return chAB<Boolean>.com();	// return what is received from Bob
 	}
 }
 ```
