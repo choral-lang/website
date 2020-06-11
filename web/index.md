@@ -142,7 +142,7 @@ Wanna see something more realistic? Jump to our [documentation](/documentation.h
 
 ## What advantages does Choral bring?
 
-- Choral saves you time. In our first use cases, Choral reduced the lines of code that we had to write from 50% up to almost 400%.
+- Choral saves you time. In our first use cases, Choral reduced the lines of code that we had to write to implement choreographies from 50% up to almost 400%.
 - Choral makes your coordination code safer.
   * Its compiler takes care of implementing the local behaviour of each participant for you. Implementing correct local behaviour manually is hard.
   * It prevents entire classes of errors in the implementation of a choreography, like distributed programs performing incompatible communication actions and wrong pre-/post-processing of data.
