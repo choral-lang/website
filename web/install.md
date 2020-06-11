@@ -34,7 +34,7 @@ To manually install Choral, follow the steps below:
 You should be able to check Choral's version by running the following command.
 
 ```
-$ java -jar choral.jar --version
+$ choral --version
 Choral 0.1 (C) 2020 the Choral team
 ```
 
@@ -44,7 +44,7 @@ To list all the options supported by the compiler, you can
 choral without any argument.
 
 ```
-$ java -jar choral.jar
+$ choral
 Usage: choral [-hqvV] [--debug] [--verbosity=<LEVEL>] [COMMAND]
 
 Description:
