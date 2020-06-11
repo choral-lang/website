@@ -25,7 +25,7 @@ A choreography is a multiparty protocol that defines how some _roles_ (the prove
 
 You can use Choral to program distributed authentication protocols, cryptographic protocols, business processes, parallel algorithms, or any other protocol for concurrent and distributed systems.
 At the press of a button, the Choral compiler translates a choreography into a library for each role.
-Developers can now use your libraries to make sure that their programs (like a client, or a service) follow your choreography correctly (see [Choral's methodology](#development-methodology-or-what-choral-does)). Choral makes sure that your libraries are _compliant_ implementations of your choreography, makes you more productive, and prevents you from writing incompatible implementations of communications (see [Choral's advantages](#what-advantages-does-choral-bring)).
+Developers can now use your libraries to make sure that their programs (like a client, or a service) follow your choreography correctly&mdash;see [Choral's methodology](#development-methodology-or-what-choral-does). Choral makes sure that your libraries are _compliant_ implementations of your choreography, makes you more productive, and prevents you from writing incompatible implementations of communications&mdash;see [Choral's advantages](#what-advantages-does-choral-bring).
 
 Choral is a prototype: it is developed as part of an ongoing research project (see the [about page](/about.html)), and future releases might break backwards compatibility. It is already usable for early adoption and teaching.
 If you're curious, you can [try it out yourself](/install.html) and [get in touch with us](/about.html#contacts)!
@@ -52,7 +52,7 @@ class Hellos@(Alice, Bob) {	// A class of objects distributed over two roles, ca
 
 Class `Hellos` is not very interesting, because `Alice` and `Bob` do not interact.
 Interaction is achieved by invoking methods that can "move" data from one role to another, like the `com` method of interface `SymChannel`.
-We give a simplified view of this interface below (see the details in the documentation of [channels](/basics/channels.html)).
+We give a simplified view of this interface below&mdash;see the details in the documentation of [channels](/basics/channels.html).
 
 ```choral
 // A bidirectional communication channel between two roles A and B
