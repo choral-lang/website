@@ -36,6 +36,9 @@ To manually install Choral, follow the steps below:
 - set the environment variable `CHORAL_HOME` to a directory of your choice (this is the directory where we will install the Choral libraries);
 - move all files (and subdirectories) inside `dist` to the directory pointed at by `CHORAL_HOME`.
 
+
+# Choral commands
+
 ## Choral version
 
 You should be able to check Choral's version by running the following command.
@@ -74,7 +77,7 @@ Commands:
   generate-completion       Generate bash/zsh completion script for choral.
 ```
 
-## Choral's commands
+## Some key commands
 
 For each command, you can get help by invoking the `-h` or `--help` option.
 For example, to get help on how to use the `epp` command (for compiling Choral code to Java), invoke `choral epp -h`.
@@ -83,3 +86,19 @@ Here's a brief overview of the main commands.
 
 - Use `choral epp ChoralName` to compile the Choral interface or class `ChoralName` to Java.
 - Use `choral check ChoralName` to check that the Choral interface or class `ChoralName` is well-typed and can be compiled.
+
+
+# IDE support
+
+We do not have an easy-to-install IDE plugin for Choral yet. (See? We're really a prototype!)
+
+If you're interested in making one: the first line of output messages printed by `choral check` follows the same format of `javac`, so it should be possible to adapt an existing Java plugin. Here is an output example.
+
+```
+ConsumeItems.ch:11:6: error: Cannot resolve method 'select(choral.example.ConsumeItems.ConsumeChoice@(B))' in 'org.choral.channels.DiChannel@(A,B)<java.lang.Integer>'.
+
+   10 |     if ( it.hasNext() ){
+   11 |       ch.< ConsumeChoice >select( ConsumeChoice@B.AGAIN );
+      | ---------^
+   12 |       it.next() >> ch::< Integer > com >> consumer::accept;
+```
