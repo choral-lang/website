@@ -21,11 +21,11 @@ You might need to run the command above using `sudo` if your user cannot write i
 
 If you want to choose different installation directories, just pass them as arguments to the install script as follows.
 
-<pre class="border p-2 bg-light">curl https://raw.githubusercontent.com/choral-lang/choral/master/src/scripts/install.sh | bash -s /path/to/store/the/launcher /path/to/store/the/binaries</pre>
+<pre class="border p-2 bg-light">curl https://raw.githubusercontent.com/choral-lang/choral/master/src/scripts/install.sh | bash -s -l /path/to/store/the/launcher -b /path/to/store/the/binaries</pre>
 
 For example, to install the `choral` launcher in `~/bin` and the Choral libraries in `~/bin/choral-dist`, use the following.
 
-<pre class="border p-2 bg-light">curl https://raw.githubusercontent.com/choral-lang/choral/master/src/scripts/install.sh | bash -s ~/bin ~/bin/choral-dist</pre>
+<pre class="border p-2 bg-light">curl https://raw.githubusercontent.com/choral-lang/choral/master/src/scripts/install.sh | bash -s -l ~/bin -s ~/bin/choral-dist</pre>
 
 ## Manual installation
 
