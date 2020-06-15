@@ -95,7 +95,7 @@ We do not have an easy-to-install IDE plugin for Choral yet. (See? We're really 
 If you're interested in making one: the first line of output messages printed by `choral check` follows the same format of `javac`, so it should be possible to adapt an existing Java plugin. Here is an output example.
 
 ```
-ConsumeItems.ch:11:6: error: Cannot resolve method 'select(choral.example.ConsumeItems.ConsumeChoice@(B))' in 'org.choral.channels.DiChannel@(A,B)<java.lang.Integer>'.
+ConsumeItems.ch:11:6: error: Cannot resolve method 'select(choral.example.ConsumeItems.ConsumeChoice@(B))' in 'choral.channels.DiChannel@(A,B)<java.lang.Integer>'.
 
    10 |     if ( it.hasNext() ){
    11 |       ch.< ConsumeChoice >select( ConsumeChoice@B.AGAIN );
