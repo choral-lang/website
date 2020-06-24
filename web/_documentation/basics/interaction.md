@@ -130,7 +130,7 @@ class RemoteFunction@( Client, Server )< T@X, R@Y > {
   private Function@Server< T, R > f; 
   
   public RemoteFunction( 
-    BiDataChannel< T, R >@( Client, Server ) ch, 
+    BiDataChannel@( Client, Server )< T, R > ch, 
     Function@Server<T, R> f
   ){ 
     this.ch = ch; 
