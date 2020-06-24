@@ -22,5 +22,9 @@
     url: examples/mergesort.html
 - name: Code checker
   url: /documentation/checker.html
+- name: Integrating Java code
+  url: /documentation/integrating-java.html
 - name: Testing
   url: /documentation/testing.html
+- name: Syntax
+  url: /documentation/syntax.html
