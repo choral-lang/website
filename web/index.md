@@ -36,6 +36,49 @@ Choral is compatible with Java in three ways:
 Choral is a prototype: it is developed as part of an ongoing research project (see the [about page](/about.html)), and future releases might break backwards compatibility. It is already usable for early adoption and teaching.
 If you're curious, you can [try it out yourself](/install.html) and [get in touch with us](/about.html#contacts)!
 
+### Want to talk about Choral?
+
+If you have questions, comments or you would just like to express your interest in the Choral project, you can either directly contact the [Choral development team](/about.html) or use (and upvote!) the related threads on
+
+<div class="row">
+<div class="col-6 text-right">
+<a href="https://www.reddit.com/r/programming/comments/hebf2i/choral_a_javacompatible_language_for_typesafe/">
+<button type="button" class="col-10 btn btn-outline-dark">
+<span class="h4"><i class="fab fa-reddit" aria-hidden="true"></i> Reddit</span>
+</button>
+</a>
+</div>
+<div class="col-6 text-left"><a href="https://news.ycombinator.com/item?id=23611604">
+<button type="button" class="col-10 btn btn-outline-dark">
+<span class="h4"><i class="fab fa-hacker-news" aria-hidden="true"></i> Hacker News</span>
+</button>
+</a>
+</div>
+</div>
+
+---
+
+## Explain it like I am 5!
+
+<div class="alert alert-warning" role="alert">
+<strong>The problem</strong>
+
+Programming distributed systems gives you headaches because you need to figure out how to correctly coordinate multiple programs that interact via side-effects, which you need to manually control (send/receive over channels). If you made some mistakes, finding what went wrong is even harder, because you have to figure out all the possible sequences of communications that can happen (and go wrong) during the concurrent execution of your programs. Testing is hell, as it requires the integration of many distributed components, mocking, etc.
+</div>
+
+<div class="alert alert-info" role="alert">
+ <strong>Choral</strong>
+
+Choral relieves some of those headaches because you can write as a single program, the whole coordination (protocol) that you want your distributed system to follow. 
+Choral is also friendly to Java programmers (and close to C++, C#, Kotlin, Swift, etc.) because is extends its syntax with a new kind of (higher-kinded) types to let you express things like "the Client communicates this to Service, then Service communicates that to the Login Provider, then [...]". In practice, Choral wraps the headache-mongering side effects within type-safe abstractions, so you can concentrate on the high-level details of the implementation.
+
+If you introduced some incompatibilities between the description of how you want your programs to coordinate and how actually implemented it, the Choral compiler reports you that error and helps you solve it (as it happens with the Java compiler). Moreover, Choral comes with a testing tool (ChoralUnit) that helps you write integration tests with the simplicity of unit tests, performing for you the runtime (integration) tests on your distributed system.
+
+In essence, you program with the simplicity of plain old sequential programs, but you get distributed systems with decentralised control with and strong correctness guarantees. This allows you to use or distribute them to your customers with a higher level of confidence on their reliability. You can also reliably compose different Choral(-compiled) programs, to mix different protocol and build the topology that you need.
+</div>
+
+---
+
 ## Language
 
 If you just want to glance at how a Choral program looks like, you can jump to [Alice, Bob, and Carol go to a meeting](#alice-bob-and-carol-go-to-a-meeting) and then come back here for the details.
