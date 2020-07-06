@@ -22,6 +22,11 @@ Suppose that a "healthcare service" in a hospital needs to gather sensitive data
 ```choral
 public enum StreamState@R { ON, OFF }
 
+public VitalsStreamingHelper@A {
+  private static Vitals@A pseudonymise( Vitals@A vitals ) { /*...*/ }
+  private static Boolean@A checkSignature( Signature@A signature ) { /*...*/ }
+}
+
 public class VitalsStreaming@( Device, Gatherer ) {
   
   private SymChannel@( Device, Gatherer )< Object > ch; 
@@ -34,10 +39,7 @@ public class VitalsStreaming@( Device, Gatherer ) {
     this.ch = ch;
     this.sensor = sensor; 
   }
-
-  private static Vitals@Gatherer pseudonymise( Vitals@Gatherer vitals ) { /*...*/ }
-  private static Boolean@Gatherer checkSignature( Signature@Gatherer signature ) { /*...*/ }
-  
+ 
   public void gather( Consumer@Gatherer< Vitals > consumer ) {
     if ( sensor.isOn() ) {
       ch.< StreamState >select( StreamState@Device.ON );
@@ -45,8 +47,8 @@ public class VitalsStreaming@( Device, Gatherer ) {
       >> ch::< Vitals >com; 
       if ( checkSignature( msg.signature() ) ){
         msg.content() 
-        >> this::pseudonymise 
-        >> consumer::accept; 
+        >> VitalsStreamingHelper::pseudonymise 
+        >> consumer::accept;
       }
       gather(consumer);
     } else {

@@ -9,7 +9,7 @@ github_code: https://github.com/choral-lang/examples/tree/master/mergesort
 
 # Merge Sort
 
-The last use case that we present is a three-way concurrent implementation of [merge sort](https://en.wikipedia.org/wiki/Merge_sort), which exemplifies the design of parallel algorithms in Choral. 
+In this use case, we present a three-way concurrent implementation of [merge sort](https://en.wikipedia.org/wiki/Merge_sort), which exemplifies the design of parallel algorithms in Choral. 
 
 Our implementation leverages role parameterisation such that participants collaboratively switch the roles that they play at runtime.
 We represent the three concurrent parties as the roles `A`, `B`, and `C`. The idea is to follow the steps of standard merge sort, with `A` acting as
