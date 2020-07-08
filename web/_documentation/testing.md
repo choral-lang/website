@@ -15,7 +15,7 @@ Following standard practice in object-oriented languages and inspired by [JUnit]
 For example, we can define the following unit test for the [VitalsStreaming class](/documentation/examples/healthcare_service.html)
 
 ```choral
-import org.choral.choralUnit.annotations.Test;
+import choral.choralUnit.annotations.Test;
 
 public class VitalsStreamingTest@(Device, Gatherer) {
  
