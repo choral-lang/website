@@ -88,12 +88,12 @@ class HelloRoles_B {
 </div>
 </div>
 
-Each generated class contains only the instructions that pertain that role. 
+Each generated class contains only the instructions that pertain to that role. 
 
 If Java developers want to implement the behaviour of method `sayHello` for a specific role of the `HelloRoles` choreography, say `A`, they just need to invoke the generated `sayHello` method in the respective generated class (`HelloRoles_A`).
 
 <div class="border border-info bg-light px-5">
-Using the `@` symbol in types comes from tradition in [hybrid logic](https://en.wikipedia.org/wiki/Hybrid_logic), where `@` is used to express the "world" at which a statement is valid. Similarly, in Choral, `@` expresses the roles at which a data type lives.
+Using the `@` symbol in types comes from the tradition in [hybrid logic](https://en.wikipedia.org/wiki/Hybrid_logic), where `@` is used to express the "world" at which a statement is valid. Similarly, in Choral, `@` expresses the roles at which a data type lives.
 
 You can still use the `@` symbol to write also common Java-like annotations in other places, like in Java.
 </div>

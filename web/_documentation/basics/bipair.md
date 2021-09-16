@@ -30,7 +30,7 @@ class BiPair@(A, B)<L@X, R@Y> {
 ```
 
 <p class="text-center text-monospace">
-Try it yourself: see the [source code](https://github.com/choral-lang/examples/tree/master/bipair) on <i class="fab fa-github"></i>.
+Try it yourself: see the [source code](https://github.com/choral-lang/examples/tree/master/choral/bipair) on <i class="fab fa-github"></i>.
 </p>
 
 Class `BiPair` is distributed between roles `A` and `B` and has two fields, `left` and `right`.
@@ -38,7 +38,7 @@ The class is also parameterised on two data types, `L` and `R`, which exemplifie
 In the class declaration, `L@X` specifies that `L` is expected to be a data type parameterised over a single role, abstracted by `X`; similarly for `R@Y`. 
 Choral interprets type parameter declarations and usages as in Java generics: the first appearance of a type parameter declares the parameter (it is a "binder"), while subsequent occurrences of the same parameter name are usages of that parameter (these occurrences are "bound").
 
-The two fields found in the first two lines after the class declaration, `left` and `right`, are respectively located at `A` and `B` with types `L` and `R`. 
+The two fields found in the first two lines after the class declaration, `left` and `right`, are respectively located at `A` and `B` with the types `L` and `R`. 
 Choral classes can have constructors that take data in from different roles, as shown by the method `public BiPair(L@A left, R@B right)`.
 The `BiPair` class also has two accessor methods that return data at different roles, to access the respective two fields `left` and `right`.
 

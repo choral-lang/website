@@ -29,7 +29,7 @@ interface DiDataChannel@( A, B )< T@X > {
 
 A `DiDataChannel` is the interface of a directed channel between two roles, abstracted by `A` and `B`, that can transfer data of type `T`. 
 
-The method `com` takes any subtype of `T` located at `A`, `S@A`, and returns a value of type `S@B`. Parameterising data channels over the type of transferrable data (`T`) is important in practice for channel implementors, because they often need to deal with data marshalling. 
+The method `com` takes any subtype of `T` located at `A`, `S@A`, and returns a value of type `S@B`. Parameterising data channels over the type of transferrable data (`T`) is important in practice for channel implementors because they often need to deal with data marshalling. 
 
 Choral comes with a standard library that offers implementations of our channel APIs for a few common types of channels, e.g., TCP/IP sockets supporting JSON objects and shared memory channels and users can provide their own implementations.
 

@@ -3,7 +3,7 @@ layout: documentation
 title: Distributed Authentication
 parent: Examples
 url: examples/distributed_authentication
-github_code: https://github.com/choral-lang/examples/tree/master/distributed%20authentication
+github_code: https://github.com/choral-lang/examples/tree/master/choral/distributed-authentication
 ---
 
 # Distributed Authentication

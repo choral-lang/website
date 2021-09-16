@@ -51,7 +51,7 @@ public class Hello@( Alice, Bob ) {
 In order to check and project the code above, the Choral compiler needs to know that `Serialiser` has one role and two static methods `stringToBytes` and `stringFromBytes` as well as their signatures. Implementations of methods and constructors are not necessary.  To provide this information to the Choral compiler we need the following Choral Header.
 ```choral
 /* Choral Header */
-package somelibrary;
+package some.library;
 
 public class Serialiser@( A ) {
 
@@ -67,9 +67,9 @@ public class Serialiser@( A ) {
 ```
 This is precisely the fragment of the Java class `Serialiser` required by our program `Hello` where the Choral class `Serialiser` is parametrised in one role (`A`) and all types that appear in its definition are located at the same role. 
 
-In general, a Choral Header is a file with extension `.chh` that contains what is essentially Choral source code. Bodies of methods and constructors are ignored and thus usually left empty. 
+In general, a Choral Header is a file with the extension `.chh` that contains what is essentially Choral source code. Bodies of methods and constructors are ignored and thus usually left empty. 
 Choral Headers written to represent Java APIs may omit part of it (in the example above, we write only `stringToBytes` and `stringFromBytes` in the header). 
-It is responsibility of the writer of the header to include all relevant information as the Choral compiler will be unaware of any information about Java code not written in the provided header files.
+It is the responsibility of the writer of the header to include all relevant information as the Choral compiler will be unaware of any information about Java code not written in the provided header files.
 
 ## Preloaded headers
 
