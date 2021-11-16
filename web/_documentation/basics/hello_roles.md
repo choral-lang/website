@@ -45,7 +45,7 @@ class HelloRoles@(A, B) {
 ```
 
 <p class="text-center text-monospace">
-Try it yourself: see the [source code](https://github.com/choral-lang/examples/tree/master/hello-roles) on <i class="fab fa-github"></i>.
+Try it yourself: see the [source code](https://github.com/choral-lang/examples/tree/master/choral/hello-roles) on <i class="fab fa-github"></i>.
 </p>
 
 The code above defines a class, `HelloRoles`, parameterised over two roles, `A` and `B`.

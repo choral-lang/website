@@ -79,7 +79,7 @@ public class DistAuth@( Client, Service, IP ){
 ```
 
 <p class="text-center text-monospace">
-Try it yourself: see the [source code](https://github.com/choral-lang/examples/tree/master/distributed-authentication) on <i class="fab fa-github"></i>.
+Try it yourself: see the [source code](https://github.com/choral-lang/examples/tree/master/choral/distributed-authentication) on <i class="fab fa-github"></i>.
 </p>
 
 Class `DistAuth` is a multiparty protocol parameterised over three roles: `Client`, `Service`, and `IP` (for Identity Provider). 

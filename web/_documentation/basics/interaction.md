@@ -117,7 +117,7 @@ interface BiDataChannel@( A, B )< T@X, R@Y > extends
 
 A `BiDataChannel` is parameterised over two types: `T` is the type of data that can be transferred from `A` to `B` and, vice versa, `R` is the type of data that can be transferred in the opposite direction. This is obtained by multiple type inheritance: `BiDataChannel` extends `DiDataChannel` in one and the other direction, which allows for using modularly a bidirectional data channel in code that has the weaker requirement of a directed data channel in one of the two supported directions.
 
-Distinguishing the two parameters `T` and `R` is useful for protocols that have different types for requests and responses, like HTTP. We discuss more types of channels (including symmetric channels) in the documentation page dedicated to [Channels](/_documentation/basics/channels.html).
+Distinguishing the two parameters `T` and `R` is useful for protocols that have different types for requests and responses, like HTTP. We discuss more types of channels (including symmetric channels) in the documentation page dedicated to [Channels](/documentation/basics/channels.html).
 
 ## Forward chaining
 

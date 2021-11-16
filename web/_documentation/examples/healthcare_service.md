@@ -59,7 +59,7 @@ public class VitalsStreaming@( Device, Gatherer ) {
 ```
 
 <p class="text-center text-monospace">
-Try it yourself: see the [source code](https://github.com/choral-lang/examples/tree/master/vitals-streaming) on <i class="fab fa-github"></i>.
+Try it yourself: see the [source code](https://github.com/choral-lang/examples/tree/master/choral/vitals-streaming) on <i class="fab fa-github"></i>.
 </p>
 
 In class `VitalsStreaming` composes a channel between the `Device` and the `Gatherer` and a `Sensor` object located at the `Device` (for obtaining the local vital readings). 
