@@ -73,7 +73,7 @@ consumeItems(
 ```
 
 <p class="text-center text-monospace">
-Try it yourself: see the [source code](https://github.com/choral-lang/examples/tree/master/consume-items) on <i class="fab fa-github"></i>.
+Try it yourself: see the [source code](https://github.com/choral-lang/examples/tree/master/choral/consume-items) on <i class="fab fa-github"></i>.
 </p>
 
 Differently from the previously broken implementation of `consumeItems`, now role `A` sends a selection of either `GO` or `STOP` to `B`. Role `B` can now inspect the received enumerated value to infer whether it should execute the code for the if- or the else-branch of the conditional. 

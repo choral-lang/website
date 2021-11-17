@@ -93,7 +93,7 @@ public class Mergesort@( A, B, C ){
 ```
 
 <p class="text-center text-monospace">
-Try it yourself: see the [source code](https://github.com/choral-lang/examples/tree/master/mergesort) on <i class="fab fa-github"></i>.
+Try it yourself: see the [source code](https://github.com/choral-lang/examples/tree/master/choral/mergesort) on <i class="fab fa-github"></i>.
 </p>
 
 The sorting algorithm is implemented by the sort method, which uses the private merge method (omitted) to recursively handle the point-wise merging of ordered lists. For lists of size greater than 1, the algorithm creates two new `Mergesort` objects by instantiating roles such that they get switched as we discussed, splits the list at the master, communicates the resulting sublists to the slaves, recursively invokes merge sort with the switched roles, and finally merges the results.

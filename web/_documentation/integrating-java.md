@@ -73,7 +73,7 @@ It is the responsibility of the writer of the header to include all relevant inf
 
 ## Preloaded headers
 
-The Choral compiler comes already equipped with a few preloaded header files that make some common types from the Java standard library immediately available. For these types, you do not have to provide your own header. Contributions to this part are very welcome (this task could also be automated). You can see them at [https://github.com/choral-lang/choral/tree/master/src/main/resources/headers](https://github.com/choral-lang/choral/tree/master/src/main/resources/headers). A summary list is given at [https://github.com/choral-lang/choral/blob/master/src/main/resources/headers/standard.profile](https://github.com/choral-lang/choral/blob/master/src/main/resources/headers/standard.profile).
+The Choral compiler comes already equipped with a few preloaded header files that make some common types from the Java standard library immediately available. For these types, you do not have to provide your own header. Contributions to this part are very welcome (this task could also be automated). You can see them [here](https://github.com/choral-lang/choral/tree/master/choral/src/main/resources/headers). A summary list is given [here](https://github.com/choral-lang/choral/blob/master/choral/src/main/resources/headers/standard.profile).
 
 
 [^java-unsupported]: Arrays, nested classes, raw types, and wildcards in generics are not supported yet.
