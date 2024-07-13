@@ -12,7 +12,7 @@ This is why we equipped Choral with a first-party library called ChoralUnit: a t
 
 Following standard practice in object-oriented languages and inspired by [JUnit](https://en.wikipedia.org/wiki/JUnit), tests in ChoralUnit are defined as methods marked with a `@Test` annotation.
 
-For example, we can define the following unit test for the [VitalsStreaming class](/documentation/examples/healthcare_service.html)
+For example, we can define the following unit test for the [VitalsStreaming class](/documentation/examples/healthcare-service.html)
 
 ```choral
 import choral.choralUnit.annotations.Test;

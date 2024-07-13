@@ -3,21 +3,21 @@
 - name: Basics
   items:
   - name: Hello Roles
-    url: basics/hello_roles.html
+    url: basics/hello-roles.html
   - name: BiPair
     url: basics/bipair.html
   - name: Interaction
     url: basics/interaction.html
   - name: Knowledge of Choice
-    url: basics/knowledge_of_choice.html
+    url: basics/knowledge-of-choice.html
   - name: Channels
     url: basics/channels.html
 - name: Examples
   items:
   - name: Distributed Authentication
-    url: examples/distributed_authentication.html
+    url: examples/distributed-authentication.html
   - name: Healthcare Service
-    url: examples/healthcare_service.html
+    url: examples/healthcare-service.html
   - name: Merge sort
     url: examples/mergesort.html
 - name: Code checker

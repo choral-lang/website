@@ -3,7 +3,7 @@ layout: documentation
 title: Hello Roles
 parent: Basics
 ancestor: Documentation
-url: basics/hello_roles
+url: basics/hello-roles
 ---
 
 # Hello Roles
