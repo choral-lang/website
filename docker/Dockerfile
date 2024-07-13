@@ -5,6 +5,6 @@ RUN bundle install
 RUN bundle exec jekyll build
 RUN mv /srv/jekyll/_site /site
 
-FROM jolielang/leonardo
+FROM jolielang/leonardo:edge
 ENV LEONARDO_WWW /web
 COPY --from=Build /site $LEONARDO_WWW

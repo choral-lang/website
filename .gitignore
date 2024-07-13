@@ -1,2 +1,4 @@
 web/_site
 web/.jekyll-cache
+.docker-cache
+web/Gemfile.lock
