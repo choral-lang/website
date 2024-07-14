@@ -13,7 +13,7 @@ title: Home
    </p>
    <a href="/install.html"><button type="button" class="btn btn-primary">Install</button></a>
    <a href="/documentation.html"><button type="button" class="btn btn-info">Learn</button></a>
-   <a href="/index.html#article"><button type="button" class="btn btn-success">Read the article</button></a>
+   <a href="/index.html#publications"><button type="button" class="btn btn-success">Articles</button></a>
    <a href="https://github.com/choral-lang/choral"><button type="button" class="btn btn-secondary">View the source on <i class="fab fa-github"></i></button></a>
   </div>
  </div>
@@ -202,14 +202,15 @@ We think that Choral has the potential to be especially relevant for business pr
 
 <div class="row">
 <div class="col-12 col-md-8 col-lg-9 col-xl-10">
-## Article
+## Publications
 
-If you're interested in programming languages, want to know more about how Choral works and how it relates to other works, please refer to the article **[Choreographies as Object](https://arxiv.org/abs/2005.09520)**.
-Choral has been influenced by previous work on [choreographic programming](https://www.fabriziomontesi.com/files/choreographic_programming.pdf) and the theoretical models that inspired multitier programming, like [hybrid logic](https://en.wikipedia.org/wiki/Hybrid_logic) and [Lambda 5](https://doi.org/10.1109/LICS.2004.1319623).
+If you're interested in programming languages, want to know more about how Choral works and how it relates to other works, please refer to the article **[Choral: Object-oriented Choreographic Programming](https://dl.acm.org/doi/10.1145/3632398)**.
+Choral is a **choreographic programming** language. You can read more about choreographic programming on [the Choreographic Programming Wikipedia article](https://en.wikipedia.org/wiki/Choreographic_programming), the [PhD thesis that introduced choreographic programming](https://www.fabriziomontesi.com/files/choreographic-programming.pdf), or [the introductory textbook to theory of choreographic languages](https://doi.org/10.1017/9781108981491). 
+<!-- the theoretical models that inspired multitier programming, like [hybrid logic](https://en.wikipedia.org/wiki/Hybrid_logic) and [Lambda 5](https://doi.org/10.1109/LICS.2004.1319623). -->
 </div>
 
 <div class="col-4 col-md-4 col-lg-3 col-xl-2 mx-auto">
-<a href="https://arxiv.org/abs/2005.09520">
+<a href="https://dl.acm.org/doi/10.1145/3632398">
 <img class="img-thumbnail" src="/img/paper.png" alt="">
 </a>
 </div>
