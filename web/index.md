@@ -36,11 +36,11 @@ Choral is compatible with Java in three ways:
 Choral is a prototype: it is developed as part of an ongoing research project (see the [about page](/about.html)), and future releases might break backwards compatibility. It is already usable for early adoption and teaching.
 If you're curious, you can [try it out yourself](/install.html) and [get in touch with us](/about.html#contacts)!
 
-### Want to talk about Choral?
+<!-- ### Want to talk about Choral?
 
-If you have questions, comments or you would just like to express your interest in the Choral project, you can either directly contact the [Choral development team](/about.html) or use (and upvote!) the related threads on
+If you have questions, comments or you would just like to express your interest in the Choral project, you can either directly contact the [Choral development team](/about.html) or use (and upvote!) the related threads on -->
 
-<div class="row">
+<!-- <div class="row">
 <div class="col-6 text-right">
 <a href="https://www.reddit.com/r/programming/comments/hebf2i/choral_a_javacompatible_language_for_typesafe/">
 <button type="button" class="col-10 btn btn-outline-dark">
@@ -54,7 +54,7 @@ If you have questions, comments or you would just like to express your interest 
 </button>
 </a>
 </div>
-</div>
+</div> -->
 
 ---
 
@@ -70,11 +70,11 @@ Programming distributed systems gives you headaches because you need to figure o
  <strong>Choral</strong>
 
 Choral relieves some of those headaches because you can write as a single program, the whole coordination (protocol) that you want your distributed system to follow. 
-Choral is also friendly to Java programmers (and close to C++, C#, Kotlin, Swift, etc.) because is extends its syntax with a new kind of (higher-kinded) types to let you express things like "the Client communicates this to Service, then Service communicates that to the Login Provider, then [...]". In practice, Choral wraps the headache-mongering side effects within type-safe abstractions, so you can concentrate on the high-level details of the implementation.
+Choral is also friendly to Java programmers (and close to C++, C#, Kotlin, Swift, etc.) because it extends its syntax with a new kind of (higher-kinded) types to let you express things like "the Client communicates this to Service, then Service communicates that to the Login Provider, then [...]". In practice, Choral wraps the headache-mongering side effects used to implement communication within type-safe abstractions, so you can concentrate on the high-level details of the implementation.
 
-If you introduced some incompatibilities between the description of how you want your programs to coordinate and how actually implemented it, the Choral compiler reports you that error and helps you solve it (as it happens with the Java compiler). Moreover, Choral comes with a testing tool (ChoralUnit) that helps you write integration tests with the simplicity of unit tests, performing for you the runtime (integration) tests on your distributed system.
+If you introduce some incompatibilities between the description of how you want your programs to coordinate and how you actually implemented it, like expecting data at a participant but forgetting to communicate it, the Choral compiler reports you that error and helps you solve it. Moreover, Choral comes with a testing tool (ChoralUnit) that helps you write integration tests with the simplicity of unit tests, performing for you the runtime (integration) tests on your distributed system.
 
-In essence, you program with the simplicity of plain old sequential programs, but you get distributed systems with decentralised control with and strong correctness guarantees. This allows you to use or distribute them to your customers with a higher level of confidence on their reliability. You can also reliably compose different Choral(-compiled) programs, to mix different protocol and build the topology that you need.
+In essence, you program with the simplicity of plain old sequential programs, but you get distributed systems with decentralised control with strong correctness guarantees. This allows you to use or distribute them with a higher level of confidence. You can also reliably compose different Choral(-compiled) programs, to mix different protocol and build the topology that you need.
 </div>
 
 ---
