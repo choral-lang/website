@@ -13,7 +13,7 @@ title: Home
    </p>
    <a href="/install.html"><button type="button" class="btn btn-primary">Install</button></a>
    <a href="/documentation.html"><button type="button" class="btn btn-info">Learn</button></a>
-   <a href="/index.html#publications"><button type="button" class="btn btn-success">Articles</button></a>
+   <a href="/index.html#articles"><button type="button" class="btn btn-success">Articles</button></a>
    <a href="https://github.com/choral-lang/choral"><button type="button" class="btn btn-secondary">View the source on <i class="fab fa-github"></i></button></a>
   </div>
  </div>
