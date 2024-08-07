@@ -231,3 +231,15 @@ Choral is a **choreographic programming** language. You can read more about chor
 </a>
 </div>
 </div>
+<div class="row">
+<div class="col-12 col-md-8 col-lg-9 col-xl-10">
+#### Real-World Choreographic Programming
+
+**[Real-World Choreographic Programming: Full-Duplex Asynchrony and Interoperability](https://doi.org/10.22152/programming-journal.org/2024/8/8)** carries out the first [development](https://github.com/choral-lang/irc) of a widespread real-world protocol -- [Internet Relay Chat (IRC)](https://en.wikipedia.org/wiki/IRC) -- using Choral, tackling the issues of full-duplex asynchrony and interoperability.
+</div>
+<div class="col-4 col-md-4 col-lg-3 col-xl-2 mx-auto">
+<a href="https://doi.org/10.22152/programming-journal.org/2024/8/8">
+<img class="img-thumbnail" src="/img/irc.png" alt="A screenshot from the Real-World Choreographic Programming article.">
+</a>
+</div>
+</div>
