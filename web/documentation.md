@@ -22,7 +22,7 @@ The tutorials assume that you're familiar with Java or a similar language.
 Since Choral's aim is to produce "idiomatic" Java libraries, Choral incorporates many features from the Java language, like classes, interfaces, generics, inheritance, and method overloading.[^lambda]
 
 <div markdown=0 class="text-center">
-<a href="/documentation/basics/hello_roles.html">
+<a href="/documentation/basics/hello-roles.html">
 <div class="btn btn-outline-info btn-lg">
 First tutorial: Hello Roles
 </div></a>
