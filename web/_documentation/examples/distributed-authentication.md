@@ -15,7 +15,7 @@ authentication. The idea is that, after performing the authentication protocol, 
 
 ```choral
 public class AuthResult@( A, B ) extends 
-  BiPair@( A, B )< Optional@A< AuthToken >, Optional@B< AuthToken > > { 
+  BiPair@( A, B )< Optional< AuthToken >, Optional< AuthToken > > { 
   
   public AuthResult( AuthToken@A t1, AuthToken@B t2 ){ 
     super( Optional@A.< AuthToken >of( t1 ), Optional@B.< AuthToken >of( t2 ) ); 
@@ -62,16 +62,16 @@ public class DistAuth@( Client, Service, IP ){
     >> ClientRegistry@IP::check; 
 
     if ( valid ) {
-      ch_Client_IP.< EnumBoolean >select( AuthBranch@IP.OK );
-      ch_Service_IP.< EnumBoolean >select( AuthBranch@IP.OK );
+      ch_Client_IP.< EnumBoolean >select( EnumBoolean@IP.True );
+      ch_Service_IP.< EnumBoolean >select( EnumBoolean@IP.True );
       AuthToken@IP t = AuthToken@IP.create();
       return new AuthResult@( Client, Service )( 
         ch_Client_IP.<AuthToken>com( t ), 
         ch_Service_IP.<AuthToken>com( t )
       );
     } else {
-      ch_Client_IP.< EnumBoolean >select( AuthBranch@IP.KO );
-      ch_Service_IP.< EnumBoolean >select( AuthBranch@IP.KO );
+      ch_Client_IP.< EnumBoolean >select( EnumBoolean@IP.False );
+      ch_Service_IP.< EnumBoolean >select( EnumBoolean@IP.False );
       return new AuthResult@( Client, Service )();
     }
   }
