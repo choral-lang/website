@@ -22,7 +22,7 @@ consumeItems(
   if ( it.hasNext() ){ 
     it.next() 
     >> ch::<Item>com 
-    >> cons::accept;
+    >> consumer::accept;
     consumeItems( ch, it, consumer ); 
   } 
 }

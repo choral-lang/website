@@ -15,7 +15,7 @@ Suppose that a "healthcare service" in a hospital needs to gather sensitive data
 
 1. Define a new choreography class, called `VitalsStreaming`, that prescribes how data should be streamed from an IoT `Device` monitoring the vitals of a patient to a data `Gatherer`; this choreography will enforce that the `Gatherer` processes only data that is (a) correctly cryptographically signed by the device and (b) pseudonymised.
 
-2. Implement the healthcare service a local Java class, called `HealthCareService`, that combines the Java library compiled from `VitalsStreaming` to gather data from the IoT devices with the Java library compiled from our previous `DistAuth` example to authenticate with the cloud storage service through a third-party service (this could be, e.g., a national authentication system) and upload the data.
+2. Implement the healthcare service, a local Java class called `HealthCareService`, that combines the Java library compiled from `VitalsStreaming` to gather data from the IoT devices with the Java library compiled from our previous `DistAuth` example to authenticate with the cloud storage service through a third-party service (this could be, e.g., a national authentication system) and upload the data.
 
 ## Vitals choreographies
 
@@ -64,7 +64,7 @@ Try it yourself: see the [source code](https://github.com/choral-lang/examples/t
 
 In class `VitalsStreaming` composes a channel between the `Device` and the `Gatherer` and a `Sensor` object located at the `Device` (for obtaining the local vital readings). 
 
-Method `pseudonymises` personal data in `Vitals` at the `Gatherer`. Likewise, the method `checkSignature` is used by the `Gatherer` uses to check that a message signature is valid. (We omit the bodies of these two static methods, which are standard local methods.) 
+Method `pseudonymises` pseudonymises personal data in `Vitals` at the `Gatherer`. Likewise, the method `checkSignature` is used by the `Gatherer` uses to check that a message signature is valid. (We omit the bodies of these two static methods, which are standard local methods.) 
 
 The interesting part of this class is the method `gather`. The `Device` checks whether its sensor is on and informs the `Gatherer` of the result with appropriate selections for knowledge of choice. If the sensor is on, then `Device` sends its next available reading to `Gatherer`. `Gatherer` now checks that the message is signed correctly; if so, it `pseudonymises` the content of the message and then hands it off to a local consumer function. Notice that `Gatherer` does not need to inform `Device` of its local choice, since it does not affect the code that `Device` needs to run. We then recursively invoke gather to process the next reading.
 
