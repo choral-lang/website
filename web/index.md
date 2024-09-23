@@ -223,7 +223,7 @@ Choral is a **choreographic programming** language. You can read more about chor
 <div class="col-12 col-md-8 col-lg-9 col-xl-10">
 #### Ozone
 
-[Ozone](https://github.com/dplyukhin/ozone) is an experimental library that lets you safely use *futures* in your Choral code. With Ozone, you can write endpoint code that handles requests in parallel or returns values asynchronously (e.g. via a `CompletableFuture`). You can learn more about Ozone in the article **[Ozone: Fully Out-of-Order Choreographies](https://doi.org/10.4230/LIPIcs.ECOOP.2024.31)**. 
+[Ozone](https://github.com/dplyukhin/ozone) is an experimental library that lets you safely use *futures* in your Choral code. With Ozone, you can write endpoint code that handles requests in parallel or returns values asynchronously (e.g. via a `CompletableFuture`). You can learn more about Ozone by watching [this video](https://www.youtube.com/watch?v=23y1WCdvMX4) or by reading the research article **[Ozone: Fully Out-of-Order Choreographies](https://doi.org/10.4230/LIPIcs.ECOOP.2024.31)**.
 </div>
 <div class="col-4 col-md-4 col-lg-3 col-xl-2 mx-auto">
 <a href="https://doi.org/10.4230/LIPIcs.ECOOP.2024.44">
